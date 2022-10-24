@@ -16,3 +16,8 @@ def register():
 @app.route("/login")
 def login():
     return render_template("login.html")
+
+
+@app.route("/caravans")
+def caravans():
+    return render_template("caravans.html")

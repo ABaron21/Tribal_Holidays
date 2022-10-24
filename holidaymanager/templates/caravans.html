@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1 class="caravans-title uppercase center">Find Your Ideal Caravan</h1>
+    <div class="row card-panel blue accent-3">
+        <form action="" class="col s12">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field search-input col s12">
+                    <i class="fa-solid fa-magnifying-glass white-text prefix"></i>
+                    <input type="text" name="search" id="search">
+                    <label for="search">Search Caravans</label>
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card">
+        <div class="card-content search-card">
+            <div class="row">
+                <div class="col s4 search-img">
+                    <img src="{{ url_for('static', filename='images/caravan-placeholder.jpg')}}"
+                        alt="caravan-placeholder">
+                </div>
+                <div class="col s8">
+                    <p>Name</p>
+                    <p>Description</p>
+                    <p>Available:</p>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-small blue accent-3 right">Book</button>
+    </div>
+</div>
+{% endblock %}
