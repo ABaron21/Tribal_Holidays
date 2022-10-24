@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content%}
+<div class="hero-wrapper">
+    <div class="row">
+        <div class="col s12">
+            <div class="card hero-card blue accent-3">
+                <div class="card-content white-text">
+                    <span class="card-title center">Welcome to Tribal Holidays</span>
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="sign-up center uppercase">
+                    <a class="btn white" href="">Sign up Today!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container recommendations">
+    <h3 class="center">Recommendations</h3>
+    <div class="row">
+        <div class="image-content col s12">
+            <img src="{{ url_for('static', filename='images/caravan-placeholder.jpg')}}" alt="caravan-placeholder">
+        </div>
+        <div class="text-content col s12">
+            <h5>Caravan Name</h5>
+            <p>Description</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
