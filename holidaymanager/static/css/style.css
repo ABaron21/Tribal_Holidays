@@ -88,3 +88,16 @@ main {
 .text-content{
     text-align: center;
 }
+
+/*Register Page*/
+.register-title{
+    color: #2979ff;
+    font-size: 3em;
+}
+.register-card{
+    border-radius: 12px;
+}
+.signup-btn{
+    font-size: 16px;
+    margin-left: 100px;
+}
