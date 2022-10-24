@@ -1,14 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        type="text/css">
+    <script src="https://kit.fontawesome.com/aa35820a25.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" type="text/css">
     <title>Tribal Holidays</title>
 </head>
+
 <body>
-    
-    Hello World!
+
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="{{ url_for('home') }}" class="uppercase logo-text">Tribal Holidays</a>
+                <a href="#" data-target="mobile-collapse" class="sidenav-trigger"><i class="fa-solid fa-bars"></i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="">Caravans</a></li>
+                    <li><a href="">Events</a></li>
+                    <li><a href="">Log In</a></li>
+                    <li><a href="">Register</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <ul class="sidenav" id="mobile-collapse">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="">Caravans</a></li>
+            <li><a href="">Events</a></li>
+            <li><a href="">Log In</a></li>
+            <li><a href="">Register</a></li>
+        </ul>
+    </header>
+
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <a class="col s2 social-link" href=""><i class="fa-brands fa-square-facebook"></i></a>
+                <a class="col s2 social-link" href=""><i class="fa-brands fa-square-twitter"></i></a>
+                <a class="col s2 social-link" href=""><i class="fa-brands fa-instagram"></i></a>
+                <a class="col s2 social-link" href=""><i class="fa-brands fa-youtube"></i></a>
+                <p class="col s4 copyright-text">&copy; Tribal Developments</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js')}}"></script>
 
 </body>
+
 </html>
