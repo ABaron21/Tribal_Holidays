@@ -37,3 +37,8 @@ def profile():
 @app.route("/change-password")
 def change_password():
     return render_template("change-password.html")
+
+
+@app.route("/change-details")
+def change_details():
+    return render_template("change-details.html")

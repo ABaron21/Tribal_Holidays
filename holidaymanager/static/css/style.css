@@ -90,11 +90,13 @@ main {
 }
 
 /*Register Page*/
-.register-title, .password-title{
+.register-title, .password-title,
+.change-details-title{
     color: #2979ff;
     font-size: 3em;
 }
-.register-card, .change-password-card{
+.register-card, .change-password-card,
+.change-details-card{
     border-radius: 12px;
 }
 .signup-btn{
