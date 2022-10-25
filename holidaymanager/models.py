@@ -4,7 +4,9 @@ from holidaymanager import db
 class Users(db.Model):
     # schema for Users model
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(30), unique=True, nullable=False)
+    first_name = db.Column(db.String(20), unique=True, nullable=False)
+    last_name = db.Column(db.String(20), unique=True, nullable=False)
+    username = db.Column(db.String(30), unique=True, nullable=False)
     email = db.Column(db.String(50), unique=True, nullable=False)
     user_created = db.Column(db.Date, nullable=False)
     password = db.Column(db.String(250), unique=True, nullable=False)
@@ -23,6 +25,7 @@ class Caravans(db.Model):
     # schema for Caravans model
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
+    img_url = db.Column(db.String(250), nullable=False)
     bedrooms = db.Column(db.Integer, nullable=False)
     additional_feature = db.Column(db.String(50), nullable=False)
     available = db.Column(db.Boolean, default=True, nullable=False)
@@ -37,6 +40,7 @@ class Events(db.Model):
     # schema for Events model
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
+    img_url = db.Column(db.String(250), nullable=False)
     event_date = db.Column(db.Date, nullable=False)
     places_left = db.Column(db.Integer, nullable=False)
 
@@ -46,7 +50,7 @@ class Events(db.Model):
         )
 
 
-class Bookings(db.Model):
+class Caravan_Bookings(db.Model):
     # schema for Bookings model
     id = db.Column(db.Integer, primary_key=True)
     customer = db.Column(db.String(50), nullable=False)
@@ -61,4 +65,21 @@ class Bookings(db.Model):
     def __repr__(self):
         return "Customer Name: {0} | Caravan: {1} | Booked: {2}-{3}".format(
             self.customer, self.caravan_name, self.start_date, self.end_date
+        )
+
+
+class Event_Bookings(db.Model):
+    # schema for Bookings model
+    id = db.Column(db.Integer, primary_key=True)
+    customer = db.Column(db.String(50), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(
+        "users.id", ondelete="CASCADE"), nullable=False)
+    event_name = db.Column(db.String(50), nullable=False)
+    event_id = db.Column(
+        db.Integer, db.ForeignKey("events.id"), nullable=False)
+    event_date = db.Column(db.Date, nullable=False)
+
+    def __repr__(self):
+        return "Customer Name: {0} | Event: {1} | Date: {2}".format(
+            self.customer, self.event_name, self.event_date
         )

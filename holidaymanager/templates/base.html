@@ -15,19 +15,22 @@
 <body>
 
     <header>
-        <nav class="blue accent-3">
-            <div class="nav-wrapper">
-                <a href="{{ url_for('home') }}" class="uppercase logo-text">Tribal Holidays</a>
-                <a href="#" data-target="mobile-collapse" class="sidenav-trigger"><i class="fa-solid fa-bars"></i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('home') }}">Home</a></li>
-                    <li><a href="{{ url_for('caravans') }}">Caravans</a></li>
-                    <li><a href="{{ url_for('events') }}">Events</a></li>
-                    <li><a href="{{ url_for('login') }}">Log In</a></li>
-                    <li><a href="{{ url_for('register') }}">Register</a></li>
-                </ul>
-            </div>
-        </nav>
+        <div class="navbar-fixed">
+            <nav class="blue accent-3">
+                <div class="nav-wrapper">
+                    <a href="{{ url_for('home') }}" class="uppercase logo-text">Tribal Holidays</a>
+                    <a href="#" data-target="mobile-collapse" class="sidenav-trigger"><i
+                            class="fa-solid fa-bars"></i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('caravans') }}">Caravans</a></li>
+                        <li><a href="{{ url_for('events') }}">Events</a></li>
+                        <li><a href="{{ url_for('login') }}">Log In</a></li>
+                        <li><a href="{{ url_for('register') }}">Register</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
 
         <ul class="sidenav" id="mobile-collapse">
             <li><a href="{{ url_for('home') }}">Home</a></li>

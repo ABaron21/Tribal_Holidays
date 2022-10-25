@@ -1,6 +1,7 @@
 from flask import render_template
 from holidaymanager import app, db
-from holidaymanager.models import Users, Caravans, Events, Bookings
+from holidaymanager.models import Users, Caravans, Events
+from holidaymanager.models import Caravan_Bookings, Event_Bookings
 
 
 @app.route("/")
