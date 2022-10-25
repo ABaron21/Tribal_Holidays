@@ -22,7 +22,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
                     <li><a href="{{ url_for('caravans') }}">Caravans</a></li>
-                    <li><a href="">Events</a></li>
+                    <li><a href="{{ url_for('events') }}">Events</a></li>
                     <li><a href="{{ url_for('login') }}">Log In</a></li>
                     <li><a href="{{ url_for('register') }}">Register</a></li>
                 </ul>
@@ -32,7 +32,7 @@
         <ul class="sidenav" id="mobile-collapse">
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('caravans') }}">Caravans</a></li>
-            <li><a href="">Events</a></li>
+            <li><a href="{{ url_for('events') }}">Events</a></li>
             <li><a href="{{ url_for('login') }}">Log In</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
         </ul>

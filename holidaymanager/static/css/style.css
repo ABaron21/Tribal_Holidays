@@ -114,7 +114,20 @@ main {
 .search-input i{
     font-size: 10px;
 }
-.search-img img{
+.caravan-img img{
+    width: 125px;
+    height: 100px;
+}
+
+
+/*Event Page*/
+.events-title{
+    font-size: 36px;
+    line-height: 42px;
+    color: #2979ff;
+    margin-bottom: 30px;
+}
+.event-img img{
     width: 125px;
     height: 100px;
 }

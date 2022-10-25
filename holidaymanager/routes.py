@@ -21,3 +21,8 @@ def login():
 @app.route("/caravans")
 def caravans():
     return render_template("caravans.html")
+
+
+@app.route("/events")
+def events():
+    return render_template("events.html")
