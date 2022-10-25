@@ -32,3 +32,8 @@ def events():
 @app.route("/profile")
 def profile():
     return render_template("profile.html")
+
+
+@app.route("/change-password")
+def change_password():
+    return render_template("change-password.html")

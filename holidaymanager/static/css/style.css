@@ -90,11 +90,11 @@ main {
 }
 
 /*Register Page*/
-.register-title{
+.register-title, .password-title{
     color: #2979ff;
     font-size: 3em;
 }
-.register-card{
+.register-card, .change-password-card{
     border-radius: 12px;
 }
 .signup-btn{
@@ -158,6 +158,7 @@ main {
 .profile-btn{
     margin-left: 32px;
     margin-right: 20px;
+    margin-bottom: 10px;
 }
 .booking-title{
     font-size: 2rem;
