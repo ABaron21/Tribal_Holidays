@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1 class="uppercase center profile-title">*User's* Profile</h1>
+    
+    <!-- Profile Details -->
+    <div class="card profile-card">
+        <h5 class="center details-title">Details</h5>
+        <div class="card-content profile-details center-align">
+            <div class="row">
+                <div class="col s6">
+                    <p>Username</p>
+                </div>
+                <div class="col s6">
+                    <p>Date of Birth</p>
+                </div>
+                <div class="col s12">
+                    <p>Email Address</p>
+                </div>
+            </div>
+        </div>
+        <button class="btn profile-btn btn-small blue accent-3">Change Details</button>
+        <button class="btn profile-btn btn-small blue accent-3">Change Password</button>
+    </div>
+    <hr>
+    
+    <!-- CaravanBookings -->
+    <h5 class="center booking-title">Caravan Bookings</h5>
+    <div class="card caravan-booking">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s4 caravan-img">
+                    <img src="{{ url_for('static', filename='images/caravan-placeholder.jpg')}}"
+                        alt="caravan-placeholder">
+                </div>
+                <div class="col s8 booking-details">
+                    <p>Caravan Name</p>
+                    <p>Start Date - End Date</p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 center">
+            <button class="btn btn-small blue accent-3">Cancel Booking</button>
+        </div>
+    </div>
+    <hr>
+
+    <!-- EventBookings -->
+    <h5 class="center booking-title">Event Bookings</h5>
+    <div class="card event-booking">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s4 event-img">
+                    <img src="{{ url_for('static', filename='images/event-placeholder.jpg')}}"
+                        alt="event-placeholder">
+                </div>
+                <div class="col s8 booking-details">
+                    <p>Event Name</p>
+                    <p>Event Date</p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 center">
+            <button class="btn btn-small blue accent-3">Cancel Booking</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
