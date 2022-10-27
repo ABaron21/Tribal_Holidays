@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1 class="admin-title uppercase center">Admin Dashboard</h1>
+
+    <!-- Caravan Bookings -->
+    <div class="row">
+        <div class="col s12">
+            <h5 class="center caravan-title">Caravan Bookings</h5>
+            <div class="card caravan-bookings">
+                <div class="row">
+                    <div class="col s4 center table-title">Customer</div>
+                    <div class="col s4 center table-title">Start Date</div>
+                    <div class="col s4 center table-title">End Date</div>
+                </div>
+                <hr>
+                <div class="card-content">
+                    <div class="col s4 center">Customer</div>
+                    <div class="col s4 center">Start Date</div>
+                    <div class="col s4 center">End Date</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <h5 class="center caravan-options">Caravan Options</h5>
+        </div>
+        <div class="col s4 center"><button class="btn btn-small blue accent-3">Add</button></div>
+        <div class="col s4 center"><button class="btn btn-small blue accent-3">Edit</button></div>
+        <div class="col s4 center"><button class="btn btn-small red accent-3">Delete</button></div>
+    </div>
+    
+    
+    <!-- Event Bookings -->
+    <div class="row">
+        <div class="col s12">
+            <h5 class="center event-title">Event Bookings</h5>
+            <div class="card event-bookings">
+                <div class="row">
+                    <div class="col s4 center table-title">Customer</div>
+                    <div class="col s4 center table-title">Event</div>
+                    <div class="col s4 center table-title">Date</div>
+                </div>
+                <hr>
+                <div class="card-content">
+                    <div class="col s4 center">Customer</div>
+                    <div class="col s4 center">Event</div>
+                    <div class="col s4 center">Date</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <h5 class="center event-options">Event Options</h5>
+        </div>
+        <div class="col s4 center"><button class="btn btn-small blue accent-3">Add</button></div>
+        <div class="col s4 center"><button class="btn btn-small blue accent-3">Edit</button></div>
+        <div class="col s4 center"><button class="btn btn-small red accent-3">Delete</button></div>
+    </div>
+
+</div>
+{% endblock %}

@@ -42,3 +42,8 @@ def change_password():
 @app.route("/change-details")
 def change_details():
     return render_template("change-details.html")
+
+
+@app.route("/admin-dashboard")
+def admin_dashboard():
+    return render_template("admin-dashboard.html")

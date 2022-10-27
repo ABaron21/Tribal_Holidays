@@ -136,7 +136,7 @@ main {
 
 
 /* Profile Page */
-.profile-title{
+.profile-title, .admin-title{
     font-size: 32px;
     color: #2979ff;
 }
@@ -146,7 +146,8 @@ main {
 .profile-card .card-content{
     padding: 16px;
 }
-.details-title{
+.details-title, .caravan-title,
+.event-title{
     font-size: 2.2rem;
     color: #2979ff;
     padding-top: 20px;
@@ -182,4 +183,34 @@ main {
 .caravan-booking .btn,
 .event-booking .btn{
     margin-bottom: 10px;
+}
+
+
+/* Admin Dashboard */
+.caravan-title, .event-title{
+    margin-bottom: 20px;
+}
+.caravan-bookings hr,
+.event-bookings hr{
+    margin: 2px 0;
+}
+.caravan-bookings .row,
+.event-bookings .row{
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+.caravan-bookings .card-content,
+.event-bookings .card-content{
+    max-height: 150px;
+    overflow: scroll;
+}
+.table-title{
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-decoration: underline;
+}
+.caravan-options, .event-options{
+    color: #2979ff;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
 }
