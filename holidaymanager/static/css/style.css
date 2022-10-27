@@ -96,7 +96,8 @@ main {
     font-size: 3em;
 }
 .register-card, .change-password-card,
-.change-details-card{
+.change-details-card, .add-caravan-card,
+.add-event-card{
     border-radius: 12px;
 }
 .signup-btn{

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1 class="page-title uppercase center">Add Event</h1>
+    <div class="row">
+        <div class="col s12">
+            <div class="card add-event-card">
+                <div class="card-content">
+                    <form>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="Event Name" id="event-name" type="text" class="validate">
+                                <label for="event-name">Event Name:</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="Image URL" id="img-url" type="text" class="validate">
+                                <label for="img-url"><i class="fa-solid fa-image"></i> Image URL:</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="event-date" type="text" class="datepicker validate">
+                                <label for="event-date"><i class="fa-solid fa-calendar-days"></i> Event Date:</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="Places Available" id="places-available" type="number" class="validate">
+                                <label for="places-available">Places Available:</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-medium blue accent-3">Add Event</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

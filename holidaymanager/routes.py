@@ -52,3 +52,8 @@ def admin_dashboard():
 @app.route("/add-caravan")
 def add_caravan():
     return render_template("add-caravan.html")
+
+
+@app.route("/add-event")
+def add_event():
+    return render_template("add-event.html")
