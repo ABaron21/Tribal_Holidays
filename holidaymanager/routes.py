@@ -54,6 +54,16 @@ def add_caravan():
     return render_template("add-caravan.html")
 
 
+@app.route("/edit-caravan")
+def edit_caravan():
+    return render_template("edit-caravan.html")
+
+
 @app.route("/add-event")
 def add_event():
     return render_template("add-event.html")
+
+
+@app.route("/edit-event")
+def edit_event():
+    return render_template("edit-event.html")
