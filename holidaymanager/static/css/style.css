@@ -91,7 +91,7 @@ main {
 
 /*Register Page*/
 .register-title, .password-title,
-.change-details-title{
+.change-details-title, .page-title{
     color: #2979ff;
     font-size: 3em;
 }

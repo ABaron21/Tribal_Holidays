@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1 class="page-title uppercase center">Add Caravan</h1>
+    <div class="row">
+        <div class="col s12">
+            <div class="card register-card">
+                <div class="card-content">
+                    <form>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="Caravan Name" id="caravan-name" type="text" class="validate">
+                                <label for="caravan-name">Caravan Name:</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="Image URL" id="img-url" type="email" class="validate">
+                                <label for="img-url"><i class="fa-solid fa-image"></i> Image URL:</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="Number of Bedrooms" id="num-bedrooms" type="number"
+                                    class="validate">
+                                <label for="num-bedrooms"><i class="fa-solid fa-bed"></i> Number of Bedrooms:</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="additional-features" class="materialize-textarea"></textarea>
+                                <label for="additional-features">Additional Features:</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <div class="switch">
+                                    <label>
+                                      Available?
+                                      <input type="checkbox">
+                                      <span class="lever"></span>
+                                    </label>
+                                  </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-medium blue accent-3">Add Caravan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -47,3 +47,8 @@ def change_details():
 @app.route("/admin-dashboard")
 def admin_dashboard():
     return render_template("admin-dashboard.html")
+
+
+@app.route("/add-caravan")
+def add_caravan():
+    return render_template("add-caravan.html")
