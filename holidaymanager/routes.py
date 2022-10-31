@@ -54,6 +54,13 @@ def login():
     return render_template("login.html")
 
 
+@app.route("/logout")
+def logout():
+    flash("You have logged out")
+    session.pop("user")
+    return redirect(url_for('login'))
+
+
 @app.route("/caravans")
 def caravans():
     return render_template("caravans.html")
