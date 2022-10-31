@@ -6,16 +6,16 @@
         <div class="col s12">
             <div class="card register-card">
                 <div class="card-content">
-                    <form>
+                    <form method="POST" action="{{ url_for('login') }}">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="Username" id="username" type="text" class="validate">
+                                <input name="username" id="username" type="text" class="validate">
                                 <label for="username"><i class="fa-solid fa-user"></i> Username:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="Password" id="password" type="password" class="validate">
+                                <input name="password" id="password" type="password" class="validate">
                                 <label for="password"><i class="fa-solid fa-lock"></i> Password:</label>
                             </div>
                         </div>

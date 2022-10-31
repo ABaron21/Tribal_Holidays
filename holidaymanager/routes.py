@@ -1,5 +1,6 @@
 from flask import (
-    render_template, flash, request, url_for, redirect)
+    render_template, flash, session,
+    request, url_for, redirect)
 from holidaymanager import app, db
 from holidaymanager.models import Users, Caravans, Events
 from holidaymanager.models import Caravan_Bookings, Event_Bookings
@@ -30,8 +31,26 @@ def register():
     return render_template("register.html")
 
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
+    if request.method == "POST":
+        users = list(Users.query.all())
+        for user in users:
+            if request.form.get("username") == user.username:
+                existing_user = user
+
+        if existing_user:
+            if check_password_hash(
+                user.password, request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome back, {0}".format(request.form.get("username")))
+                return render_template("home.html")
+            else:
+                flash("Incorrect Username and/or Password")
+                return redirect(url_for('login'))      
+        else:
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for('login'))
     return render_template("login.html")
 
 
