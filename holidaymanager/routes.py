@@ -1,7 +1,9 @@
-from flask import render_template
+from flask import (
+    render_template, flash, request, url_for, redirect)
 from holidaymanager import app, db
 from holidaymanager.models import Users, Caravans, Events
 from holidaymanager.models import Caravan_Bookings, Event_Bookings
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 @app.route("/")
@@ -9,8 +11,22 @@ def home():
     return render_template("home.html")
 
 
-@app.route("/register")
+@app.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        user = Users(
+            first_name=request.form.get("first_name"),
+            last_name=request.form.get("last_name"),
+            username=request.form.get("username"),
+            email=request.form.get("email"),
+            password=generate_password_hash(request.form.get("password")),
+            admin_user=bool(
+                True if request.form.get("admin_user") else False)
+        )
+        db.session.add(user)
+        db.session.commit()
+        flash("Account Registered. You can now login")
+        return redirect(url_for("login.html"))
     return render_template("register.html")
 
 

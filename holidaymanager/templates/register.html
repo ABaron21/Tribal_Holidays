@@ -6,29 +6,44 @@
         <div class="col s12">
             <div class="card register-card">
                 <div class="card-content">
-                    <form>
+                    <form method="POST" action="{{ url_for('register') }}">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="first_name" id="first_name" type="text" class="validate" required>
+                                <label for="first_name"><i class="fa-solid fa-user"></i> First Name:</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input name="last_name" id="last-name" type="text" class="validate" required>
+                                <label for="last-name"><i class="fa-solid fa-user"></i> Last Name:</label>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="Username" id="username" type="text" class="validate">
+                                <input name="username" id="username" type="text" class="validate" required>
                                 <label for="username"><i class="fa-solid fa-user"></i> Username:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="Email Address" id="email" type="email" class="validate">
+                                <input name="email" id="email" type="email" class="validate" required>
                                 <label for="email"><i class="fa-solid fa-envelope"></i> Email:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="Password" id="password" type="password" class="validate">
+                                <input name="password" id="password" type="password" class="validate" required>
                                 <label for="password"><i class="fa-solid fa-lock"></i> Password:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="Confirm Password" id="confirm-password" type="password" class="validate">
-                                <label for="confirm-password"><i class="fa-solid fa-lock"></i> Confirm Password:</label>
+                                <div class="switch">
+                                    <label>
+                                      Admin?
+                                      <input id="admin_user" name="admin_user" type="checkbox">
+                                      <span class="lever"></span>
+                                    </label>
+                                  </div>
                             </div>
                         </div>
                         <button type="submit" class="btn signup-btn blue accent-3">Sign Up!</button>

@@ -8,10 +8,12 @@ class Users(db.Model):
     last_name = db.Column(db.String(20), unique=True, nullable=False)
     username = db.Column(db.String(30), unique=True, nullable=False)
     email = db.Column(db.String(50), unique=True, nullable=False)
-    user_created = db.Column(db.Date, nullable=False)
     password = db.Column(db.String(250), unique=True, nullable=False)
-    booking = db.relationship(
-        "Bookings", backref="users", cascade="all, delete", lazy=True
+    caravan_booking = db.relationship(
+        "Caravan_Bookings", backref="users", cascade="all, delete", lazy=True
+    )
+    event_booking = db.relationship(
+        "Event_Bookings", backref="users", cascade="all, delete", lazy=True
     )
     admin_user = db.Column(db.Boolean, default=False, nullable=False)
 
