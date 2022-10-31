@@ -27,7 +27,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash("Account Registered. You can now login")
-        return redirect(url_for("login.html"))
+        return redirect(url_for("login"))
     return render_template("register.html")
 
 
@@ -41,8 +41,11 @@ def login():
 
         if existing_user:
             if check_password_hash(
-                user.password, request.form.get("password")):
-                session["user"] = request.form.get("username").lower()
+                existing_user.password, request.form.get("password")):
+                if existing_user.admin_user:
+                    session["user"] = "admin"
+                else:
+                    session["user"] = request.form.get("username").lower()
                 flash("Welcome back, {0}".format(request.form.get("username")))
                 return render_template("home.html")
             else:
