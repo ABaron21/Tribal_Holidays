@@ -41,7 +41,7 @@ def login():
 
         if existing_user:
             if check_password_hash(
-                existing_user.password, request.form.get("password")):
+                    existing_user.password, request.form.get("password")):
                 if existing_user.admin_user:
                     session["user"] = "admin"
                 else:
@@ -50,7 +50,7 @@ def login():
                 return render_template("home.html")
             else:
                 flash("Incorrect Username and/or Password")
-                return redirect(url_for('login'))      
+                return redirect(url_for('login'))
         else:
             flash("Incorrect Username and/or Password")
             return redirect(url_for('login'))
@@ -94,8 +94,20 @@ def admin_dashboard():
     return render_template("admin-dashboard.html")
 
 
-@app.route("/add-caravan")
+@app.route("/add-caravan", methods=["GET", "POST"])
 def add_caravan():
+    if request.method == "POST":
+        caravan = Caravans(
+            name=request.form.get("caravan_name"),
+            img_url=request.form.get("img_url"),
+            bedrooms=request.form.get("num_bedrooms"),
+            additional_feature=request.form.get("additional_features"),
+            available=True if request.form.get("caravan_available") else False
+        )
+        db.session.add(caravan)
+        db.session.commit()
+        flash("Caravan Added Successfully")
+        return redirect(url_for('add_caravan'))
     return render_template("add-caravan.html")
 
 
