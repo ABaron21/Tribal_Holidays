@@ -138,6 +138,21 @@ def edit_caravan(caravan_id):
     return render_template("edit-caravan.html", caravan=caravan)
 
 
+@app.route("/delete-caravan")
+def delete_caravan():
+    caravans = list(Caravans.query.order_by(Caravans.id).all())
+    return render_template("delete-caravan.html", caravans=caravans)
+
+
+@app.route("/remove-caravan/<int:caravan_id>")
+def remove_caravan(caravan_id):
+    caravan = Caravans.query.get_or_404(caravan_id)
+    db.session.delete(caravan)
+    db.session.commit()
+    flash("Caravan has been deleted")
+    return redirect(url_for('delete_caravan'))
+
+
 @app.route("/add-event", methods=["GET", "POST"])
 def add_event():
     if request.method == "POST":
@@ -174,3 +189,18 @@ def edit_event(event_id):
         return redirect(url_for('edit_event_search'))
 
     return render_template("edit-event.html", event=event)
+
+
+@app.route("/delete-event")
+def delete_event():
+    events = list(Events.query.order_by(Events.id).all())
+    return render_template("delete-event.html", events=events)
+
+
+@app.route("/remove-event/<int:event_id>")
+def remove_event(event_id):
+    event = Events.query.get_or_404(event_id)
+    db.session.delete(event)
+    db.session.commit()
+    flash("Event has been deleted")
+    return redirect(url_for('delete_event'))

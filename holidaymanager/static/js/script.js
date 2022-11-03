@@ -3,4 +3,5 @@ $(document).ready(function(){
     $('.datepicker').datepicker({
         format: "dd mmmm, yyyy",
         i18n: {done: "Select"}});
+    $('.modal').modal();
 });

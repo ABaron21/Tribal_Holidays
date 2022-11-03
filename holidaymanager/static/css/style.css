@@ -238,3 +238,8 @@ main {
 .search-panel .btn{
     margin-bottom: 10px;
 }
+.modal-content img{
+    margin-left: 45px;
+    width: 200px;
+    height: 150px;
+}
