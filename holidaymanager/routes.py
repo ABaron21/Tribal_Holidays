@@ -113,9 +113,29 @@ def add_caravan():
     return render_template("add-caravan.html")
 
 
-@app.route("/edit-caravan")
-def edit_caravan():
-    return render_template("edit-caravan.html")
+@app.route("/edit-caravan-search")
+def edit_caravan_search():
+    caravans = list(Caravans.query.order_by(Caravans.id).all())
+    return render_template("edit-caravan-search.html", caravans=caravans)
+
+
+@app.route("/edit-caravan/<int:caravan_id>", methods=["GET", "POST"])
+def edit_caravan(caravan_id):
+    caravan = Caravans.query.get_or_404(caravan_id)
+
+    if request.method == "POST":
+        caravan.name = request.form.get("caravan_name")
+        caravan.img_url = request.form.get("img_url")
+        caravan.bedrooms = request.form.get("num_bedrooms")
+        caravan.additional_feature = request.form.get("additional_features")
+        caravan.available = True if request.form.get(
+            "caravan_available") else False
+
+        db.session.commit()
+        flash("Caravan Edited Successfully")
+        return redirect(url_for('edit_caravan_search'))
+
+    return render_template("edit-caravan.html", caravan=caravan)
 
 
 @app.route("/add-event", methods=["GET", "POST"])
@@ -132,6 +152,11 @@ def add_event():
         flash("Event Added Successfully")
         return redirect(url_for('add_event'))
     return render_template("add-event.html")
+
+
+@app.route("/edit-event-search")
+def edit_event_search():
+    return render_template("edit-event-search.html")
 
 
 @app.route("/edit-event")

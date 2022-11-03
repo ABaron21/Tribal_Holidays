@@ -97,6 +97,8 @@ main {
 /*Register Page*/
 .register-title, .password-title,
 .change-details-title, .page-title{
+    margin-top: 15px;
+    margin-bottom: 5px;
     color: #2979ff;
     font-size: 3em;
 }
@@ -232,4 +234,7 @@ main {
     color: #2979ff;
     font-size: 1.5rem;
     margin-bottom: 15px;
+}
+.search-panel .btn{
+    margin-bottom: 10px;
 }

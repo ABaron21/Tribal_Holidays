@@ -6,29 +6,31 @@
         <div class="col s12">
             <div class="card add.caravan-card">
                 <div class="card-content">
-                    <form>
+                    <form method="POST" action="{{ url_for('edit_caravan', caravan_id=caravan.id) }}">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="Caravan Name" id="caravan-name" type="text" class="validate">
+                                <input name="caravan_name" id="caravan-name" value="{{ caravan.name }}" type="text" class="validate">
                                 <label for="caravan-name">Caravan Name:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="Image URL" id="img-url" type="email" class="validate">
+                                <input name="img_url" id="img-url" value="{{ caravan.img_url }}" type="url" class="validate">
                                 <label for="img-url"><i class="fa-solid fa-image"></i> Image URL:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="Number of Bedrooms" id="num-bedrooms" type="number"
+                                <input name="num_bedrooms" id="num-bedrooms" value="{{ caravan.bedrooms }}" type="number"
                                     class="validate">
                                 <label for="num-bedrooms"><i class="fa-solid fa-bed"></i> Number of Bedrooms:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="additional-features" class="materialize-textarea"></textarea>
+                                <textarea name="additional_features" id="additional-features" class="materialize-textarea">
+                                    {{- caravan.additional_feature -}}
+                                </textarea>
                                 <label for="additional-features">Additional Features:</label>
                             </div>
                         </div>
@@ -37,13 +39,17 @@
                                 <div class="switch">
                                     <label>
                                       Available?
-                                      <input type="checkbox">
+                                      {% if caravan.available == True %}
+                                      <input type="checkbox" name="caravan_available" id="caravan-available" checked>
+                                      {% else %}
+                                      <input type="checkbox" name="caravan_available" id="caravan-available">
+                                      {% endif %}
                                       <span class="lever"></span>
                                     </label>
                                   </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-medium blue accent-3">Update Changes</button>
+                        <button type="submit" class="btn btn-medium blue accent-3">Update</button>
                     </form>
                 </div>
             </div>
