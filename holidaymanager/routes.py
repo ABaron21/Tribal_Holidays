@@ -116,8 +116,19 @@ def edit_caravan():
     return render_template("edit-caravan.html")
 
 
-@app.route("/add-event")
+@app.route("/add-event", methods=["GET", "POST"])
 def add_event():
+    if request.method == "POST":
+        event = Events(
+            name=request.form.get("event_name"),
+            img_url=request.form.get("img_url"),
+            event_date=request.form.get("event_date"),
+            places_left=request.form.get("places_available")
+        )
+        db.session.add(event)
+        db.session.commit()
+        flash("Event Added Successfully")
+        return redirect(url_for('add_event'))
     return render_template("add-event.html")
 
 

@@ -6,28 +6,28 @@
         <div class="col s12">
             <div class="card add-event-card">
                 <div class="card-content">
-                    <form>
+                    <form method="POST" action="{{ url_for('add_event') }}">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="Event Name" id="event-name" type="text" class="validate">
+                                <input name="event_name" id="event-name" type="text" class="validate">
                                 <label for="event-name">Event Name:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="Image URL" id="img-url" type="text" class="validate">
+                                <input name="img_url" id="img-url" type="url" class="validate">
                                 <label for="img-url"><i class="fa-solid fa-image"></i> Image URL:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="event-date" type="text" class="datepicker validate">
+                                <input name="event_date" id="event-date" type="text" class="datepicker validate">
                                 <label for="event-date"><i class="fa-solid fa-calendar-days"></i> Event Date:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="Places Available" id="places-available" type="number" class="validate">
+                                <input name="places_available" id="places-available" type="number" class="validate">
                                 <label for="places-available">Places Available:</label>
                             </div>
                         </div>
