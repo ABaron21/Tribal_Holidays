@@ -72,7 +72,8 @@ def caravans():
 
 @app.route("/events")
 def events():
-    return render_template("events.html")
+    events = list(Events.query.order_by(Events.id).all())
+    return render_template("events.html", events=events)
 
 
 @app.route("/profile")

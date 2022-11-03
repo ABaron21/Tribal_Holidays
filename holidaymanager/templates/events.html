@@ -13,21 +13,23 @@
             </div>
         </form>
     </div>
-    <div class="card">
-        <div class="card-content search-card">
+    {% for event in events%}
+    <div class="card search-card">
+        <div class="card-content">
             <div class="row">
                 <div class="col s4 event-img">
-                    <img src="{{ url_for('static', filename='images/event-placeholder.jpg')}}"
-                        alt="event-placeholder">
+                    <img src="{{ event.img_url }}"
+                        alt="event-img">
                 </div>
-                <div class="col s8">
-                    <p>Name</p>
-                    <p>Description</p>
-                    <p>Spaces Available:</p>
+                <div class="col s8 search-info">
+                    <p>{{ event.name }}</p>
+                    <p>Date: {{ event.event_date.strftime("%d %B, %Y") }}</p>
+                    <p>Spaces Available: {{ event.places_left }}</p>
                 </div>
             </div>
         </div>
-        <button class="btn btn-small blue accent-3 right">Book</button>
+        <button class="btn btn-small blue accent-3">Book</button>
     </div>
+    {% endfor %}
 </div>
 {% endblock %}

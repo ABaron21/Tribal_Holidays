@@ -120,9 +120,12 @@ main {
     padding: 16px;
 }
 .search-card .btn{
-    margin-left: 150px;
+    margin-left: 155px;
     margin-bottom: 10px;
     font-size: 1rem;
+}
+.search-info{
+    margin-top: 15px;
 }
 .card-panel{
     padding: 0;
@@ -131,6 +134,7 @@ main {
     font-size: 10px;
 }
 .caravan-img img{
+    margin-top: 10px;
     width: 125px;
     height: 100px;
 }
@@ -146,6 +150,7 @@ main {
 .event-img img{
     width: 125px;
     height: 100px;
+    margin-top: 10px;
 }
 
 
