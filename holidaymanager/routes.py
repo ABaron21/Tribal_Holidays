@@ -66,7 +66,8 @@ def logout():
 
 @app.route("/caravans")
 def caravans():
-    return render_template("caravans.html")
+    caravans = list(Caravans.query.order_by(Caravans.id).all())
+    return render_template("caravans.html", caravans=caravans)
 
 
 @app.route("/events")

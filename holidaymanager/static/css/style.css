@@ -102,7 +102,7 @@ main {
 }
 .register-card, .change-password-card,
 .change-details-card, .add-caravan-card,
-.add-event-card{
+.add-event-card, .search-card{
     border-radius: 12px;
 }
 .signup-btn{
@@ -115,6 +115,14 @@ main {
     font-size: 36px;
     line-height: 40px;
     color: #2979ff;
+}
+.search-card .card-content{
+    padding: 16px;
+}
+.search-card .btn{
+    margin-left: 150px;
+    margin-bottom: 10px;
+    font-size: 1rem;
 }
 .card-panel{
     padding: 0;
