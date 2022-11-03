@@ -169,7 +169,6 @@ def edit_event(event_id):
         event.img_url = request.form.get("img_url"),
         event.event_date = request.form.get("event_date"),
         event.places_left = request.form.get("places_available")
-        
         db.session.commit()
         flash("Event Edited Successfully")
         return redirect(url_for('edit_event_search'))
