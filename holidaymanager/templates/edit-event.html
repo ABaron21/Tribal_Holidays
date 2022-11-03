@@ -6,28 +6,28 @@
         <div class="col s12">
             <div class="card add-event-card">
                 <div class="card-content">
-                    <form>
+                    <form method="POST" action="{{ url_for('edit_event', event_id=event.id)}}">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="Event Name" id="event-name" type="text" class="validate">
+                                <input placeholder="Event Name" id="event-name" value="{{ event.name }}" type="text" class="validate">
                                 <label for="event-name">Event Name:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="Image URL" id="img-url" type="text" class="validate">
+                                <input placeholder="Image URL" id="img-url" value="{{ event.img_url }}" type="text" class="validate">
                                 <label for="img-url"><i class="fa-solid fa-image"></i> Image URL:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="event-date" type="text" class="datepicker validate">
+                                <input id="event-date" type="text" value="{{ event.event_date.strftime('%d %B, %Y') }}" class="datepicker validate">
                                 <label for="event-date"><i class="fa-solid fa-calendar-days"></i> Event Date:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="Places Available" id="places-available" type="number" class="validate">
+                                <input placeholder="Places Available" id="places-available" value="{{ event.places_left }}" type="number" class="validate">
                                 <label for="places-available">Places Available:</label>
                             </div>
                         </div>

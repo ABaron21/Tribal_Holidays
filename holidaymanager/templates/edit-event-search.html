@@ -4,7 +4,7 @@
     <h1 class="page-title uppercase center">Search Event</h1>
     <h1 class="page-title uppercase center">To Edit</h1>
     <div class="row card-panel blue accent-3">
-        <form action="" class="col s12">
+        <form class="col s12">
             <div class="row valign-wrapper center-align">
                 <div class="input-field search-input col s12">
                     <i class="fa-solid fa-magnifying-glass white-text prefix"></i>
@@ -13,5 +13,23 @@
                 </div>
             </div>
         </form>
+    </div>{% for event in events%}
+    <div class="card search-card">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s4 event-img">
+                    <img src="{{ event.img_url }}"
+                        alt="event-img">
+                </div>
+                <div class="col s8 search-info">
+                    <p>{{ event.name }}</p>
+                    <p>Date: {{ event.event_date.strftime("%d %B, %Y") }}</p>
+                    <p>Spaces Available: {{ event.places_left }}</p>
+                </div>
+            </div>
+        </div>
+        <a href="{{ url_for('edit_event', event_id=event.id)}}" class="btn btn-small blue accent-3">Edit</a>
     </div>
+    {% endfor %}
+</div>
 {% endblock %}

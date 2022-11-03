@@ -156,9 +156,22 @@ def add_event():
 
 @app.route("/edit-event-search")
 def edit_event_search():
-    return render_template("edit-event-search.html")
+    events = list(Events.query.order_by(Events.id).all())
+    return render_template("edit-event-search.html", events=events)
 
 
-@app.route("/edit-event")
-def edit_event():
-    return render_template("edit-event.html")
+@app.route("/edit-event/<int:event_id>", methods=["GET", "POST"])
+def edit_event(event_id):
+    event = Events.query.get_or_404(event_id)
+
+    if request.method == "POST":
+        event.name = request.form.get("event_name"),
+        event.img_url = request.form.get("img_url"),
+        event.event_date = request.form.get("event_date"),
+        event.places_left = request.form.get("places_available")
+        
+        db.session.commit()
+        flash("Event Edited Successfully")
+        return redirect(url_for('edit_event_search'))
+
+    return render_template("edit-event.html", event=event)
