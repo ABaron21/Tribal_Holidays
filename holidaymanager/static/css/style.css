@@ -167,6 +167,9 @@ main {
 .profile-card .card-content{
     padding: 16px;
 }
+.details-field{
+    line-height: 40px;
+}
 .details-title, .caravan-title,
 .event-title{
     font-size: 2.2rem;

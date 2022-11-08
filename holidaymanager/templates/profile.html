@@ -1,21 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
-    <h1 class="uppercase center profile-title">*User's* Profile</h1>
+    <h1 class="uppercase center profile-title">{{ account.username }}'s Profile</h1>
     
     <!-- Profile Details -->
     <div class="card profile-card">
         <h5 class="center details-title">Details</h5>
-        <div class="card-content profile-details center-align">
+        <div class="card-content profile-details">
             <div class="row">
-                <div class="col s6">
-                    <p>Username</p>
+                <div class="col s12 details-field">
+                    <p>Username: {{ account.username }}</p>
                 </div>
-                <div class="col s6">
-                    <p>Date of Birth</p>
+                <div class="col s6 details-field">
+                    <p>First Name: {{ account.first_name }}</p>
                 </div>
-                <div class="col s12">
-                    <p>Email Address</p>
+                <div class="col s6 details-field">
+                    <p>Last Name: {{ account.last_name }}</p>
+                </div>
+                <div class="col s12 details-field">
+                    <p>Email: {{ account.email }}</p>
                 </div>
             </div>
         </div>

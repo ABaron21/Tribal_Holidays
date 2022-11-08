@@ -47,7 +47,6 @@ def login():
                 else:
                     session["user"] = request.form.get("username").lower()
                 flash("Welcome back, {0}".format(request.form.get("username")))
-                return render_template("home.html")
             else:
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for('login'))
@@ -76,9 +75,14 @@ def events():
     return render_template("events.html", events=events)
 
 
-@app.route("/profile")
-def profile():
-    return render_template("profile.html")
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    accounts = list(Users.query.order_by(Users.username).all())
+    for account in accounts:
+        if username == account.username:
+            account = account
+
+    return render_template("profile.html", account=account)
 
 
 @app.route("/change-password")
