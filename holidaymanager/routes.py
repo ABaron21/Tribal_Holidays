@@ -85,9 +85,27 @@ def profile(username):
     return render_template("profile.html", account=account)
 
 
-@app.route("/change-password")
-def change_password():
-    return render_template("change-password.html")
+@app.route("/change-password/<int:user_id>", methods=["GET", "POST"])
+def change_password(user_id):
+    user = Users.query.get_or_404(user_id)
+
+    if request.method == "POST":
+        if check_password_hash(
+                user.password, request.form.get("old_password")):
+            if request.form.get("new") == request.form.get("confirm"):
+                user.password = generate_password_hash(
+                    request.form.get("new"))
+                db.session.commit()
+                flash("Password Changed Successfully")
+                return redirect(url_for('profile', username=session['user']))
+            else:
+                flash("New & Confirm Password didn't match")
+                return redirect(url_for('change_password', user_id=user.id))
+        else:
+            flash("Couldn't Recognise Your Old Password")
+            return redirect(url_for('change_password', user_id=user.id))
+
+    return render_template("change-password.html", user=user)
 
 
 @app.route("/change-details/<int:user_id>", methods=["GET", "POST"])
