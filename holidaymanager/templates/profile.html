@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <a href="{{ url_for('change_details')}}" class="btn profile-btn btn-small blue accent-3">Change Details</a>
+        <a href="{{ url_for('change_details', user_id=account.id )}}" class="btn profile-btn btn-small blue accent-3">Change Details</a>
         <a href="{{ url_for('change_password')}}" class="btn profile-btn btn-small blue accent-3">Change Password</a>
     </div>
     <hr>

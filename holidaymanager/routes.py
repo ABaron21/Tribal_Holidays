@@ -90,9 +90,20 @@ def change_password():
     return render_template("change-password.html")
 
 
-@app.route("/change-details")
-def change_details():
-    return render_template("change-details.html")
+@app.route("/change-details/<int:user_id>", methods=["GET", "POST"])
+def change_details(user_id):
+    user = Users.query.get_or_404(user_id)
+
+    if request.method == "POST":
+        user.first_name = request.form.get("first_name")
+        user.last_name = request.form.get("last_name")
+        user.username = request.form.get("username")
+        user.email = request.form.get("email")
+        db.session.commit()
+        flash("Account details updated successfully")
+        session['user'] = request.form.get("username")
+        return redirect(url_for('profile', username=session['user']))
+    return render_template("change-details.html", user=user)
 
 
 @app.route("/admin-dashboard")
