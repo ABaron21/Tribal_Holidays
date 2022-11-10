@@ -97,6 +97,15 @@ def caravan_booking(caravan_id):
     return render_template("caravan-booking.html", caravan=caravan)
 
 
+@app.route("/remove-caravan-booking/<int:c_booking_id>")
+def remove_caravan_booking(c_booking_id):
+    c_booking = Caravan_Bookings.query.get_or_404(c_booking_id)
+    db.session.delete(booking)
+    db.session.commit()
+    flash("Booking has been cancelled")
+    return redirect(url_for('profile', username=session['user']))
+
+
 @app.route("/events")
 def events():
     events = list(Events.query.order_by(Events.id).all())
@@ -128,6 +137,15 @@ def event_booking(event_id):
         flash("Event has been successfully booked")
         return redirect(url_for("home"))
     return render_template("event-booking.html", event=event)
+
+
+@app.route("/remove-event-booking/<int:e_booking_id>")
+def remove_event_booking(e_booking_id):
+    e_booking = Event_Bookings.query.get_or_404(e_booking_id)
+    db.session.delete(e_booking)
+    db.session.commit()
+    flash("Booking has been cancelled")
+    return redirect(url_for('home'))
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
