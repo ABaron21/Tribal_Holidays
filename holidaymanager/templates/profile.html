@@ -2,7 +2,7 @@
 {% block content %}
 <div class="container">
     <h1 class="uppercase center profile-title">{{ account.username }}'s Profile</h1>
-    
+
     <!-- Profile Details -->
     <div class="card profile-card">
         <h5 class="center details-title">Details</h5>
@@ -22,23 +22,21 @@
                 </div>
             </div>
         </div>
-        <a href="{{ url_for('change_details', user_id=account.id )}}" class="btn profile-btn btn-small blue accent-3">Change Details</a>
-        <a href="{{ url_for('change_password', user_id=account.id )}}" class="btn profile-btn btn-small blue accent-3">Change Password</a>
+        <a href="{{ url_for('change_details', user_id=account.id )}}"
+            class="btn profile-btn btn-small blue accent-3">Change Details</a>
+        <a href="{{ url_for('change_password', user_id=account.id )}}"
+            class="btn profile-btn btn-small blue accent-3">Change Password</a>
     </div>
     <hr>
-    
+
     <!-- CaravanBookings -->
     <h5 class="center booking-title">Caravan Bookings</h5>
     <div class="card caravan-booking">
         <div class="card-content">
             <div class="row">
-                <div class="col s4 caravan-img">
-                    <img src="{{ url_for('static', filename='images/caravan-placeholder.jpg')}}"
-                        alt="caravan-placeholder">
-                </div>
-                <div class="col s8 booking-details">
-                    <p>Caravan Name</p>
-                    <p>Start Date - End Date</p>
+                <div class="col s12 booking-details">
+                    <p>{{ c_bookings['c_name'] }}</p>
+                    <p>{{ c_bookings['start_date'] }} - {{ c_bookings['end_date'] }}</p>
                 </div>
             </div>
         </div>
@@ -50,22 +48,20 @@
 
     <!-- EventBookings -->
     <h5 class="center booking-title">Event Bookings</h5>
-    <div class="card event-booking">
-        <div class="card-content">
-            <div class="row">
-                <div class="col s4 event-img">
-                    <img src="{{ url_for('static', filename='images/event-placeholder.jpg')}}"
-                        alt="event-placeholder">
-                </div>
-                <div class="col s8 booking-details">
-                    <p>Event Name</p>
-                    <p>Event Date</p>
+    {% for booking in e_bookings %}
+        <div class="card event-booking">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s12 booking-details">
+                        <p>{{ booking['e_name'] }}</p>
+                        <p>{{ booking['event_date'] }}</p>
+                    </div>
                 </div>
             </div>
+            <div class="col s12 center">
+                <button class="btn btn-small blue accent-3">Cancel Booking</button>
+            </div>
         </div>
-        <div class="col s12 center">
-            <button class="btn btn-small blue accent-3">Cancel Booking</button>
-        </div>
-    </div>
+    {% endfor %}
 </div>
 {% endblock %}
