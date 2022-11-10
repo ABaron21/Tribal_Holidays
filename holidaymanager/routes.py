@@ -120,8 +120,9 @@ def event_booking(event_id):
         if session['user'] == customer.username:
             customer = customer
     if request.method == "POST":
-        customer_name = request.form.get('first_name')
-        customer_name += request.form.get('last_name')
+        customer_name = request.form.get('first_name').lower()
+        customer_name += " "
+        customer_name += request.form.get('last_name').lower()
         booking = Event_Bookings(
             customer=customer_name,
             user_id=customer.id,
@@ -205,7 +206,11 @@ def change_details(user_id):
 
 @app.route("/admin-dashboard")
 def admin_dashboard():
-    return render_template("admin-dashboard.html")
+    caravan_bookings = list(Caravan_Bookings.query.all())
+    event_bookings = list(Event_Bookings.query.all())
+    return render_template(
+        "admin-dashboard.html", caravan_bookings=caravan_bookings,
+        event_bookings=event_bookings)
 
 
 @app.route("/add-caravan", methods=["GET", "POST"])

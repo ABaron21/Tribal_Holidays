@@ -244,11 +244,11 @@ main {
     padding-top: 10px;
     margin-bottom: 10px;
 }
-.caravan-bookings .card-content,
+/* .caravan-bookings .card-content,
 .event-bookings .card-content{
     max-height: 150px;
     overflow: scroll;
-}
+} */
 .table-title{
     font-weight: 700;
     font-size: 1.25rem;
