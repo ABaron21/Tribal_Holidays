@@ -44,9 +44,12 @@ def login():
                     existing_user.password, request.form.get("password")):
                 if existing_user.admin_user:
                     session["user"] = "admin"
+                    return redirect(url_for('home'))
                 else:
                     session["user"] = request.form.get("username").lower()
-                flash("Welcome back, {0}".format(request.form.get("username")))
+                    flash("Welcome back, {0}".format(
+                        request.form.get("username")))
+                    return redirect(url_for('home'))
             else:
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for('login'))
@@ -67,6 +70,31 @@ def logout():
 def caravans():
     caravans = list(Caravans.query.order_by(Caravans.id).all())
     return render_template("caravans.html", caravans=caravans)
+
+
+@app.route("/caravan-booking/<int:caravan_id>", methods=["GET", "POST"])
+def caravan_booking(caravan_id):
+    caravan = Caravans.query.get_or_404(caravan_id)
+    customers = list(Users.query.order_by(Users.username).all())
+    for customer in customers:
+        if session['user'] == customer.username:
+            customer = customer
+    if request.method == "POST":
+        customer_name = request.form.get('first_name')
+        customer_name += request.form.get('last_name')
+        booking = Caravan_Bookings(
+            customer=customer_name,
+            user_id=customer.id,
+            caravan_name=caravan.name,
+            caravan_id=caravan.id,
+            start_date=request.form.get('start_date'),
+            end_date=request.form.get('end_date')
+        )
+        db.session.add(booking)
+        db.session.commit()
+        flash("Caravan has been successfully booked")
+        return redirect(url_for("home"))
+    return render_template("caravan-booking.html", caravan=caravan)
 
 
 @app.route("/events")

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1 class="page-title uppercase center">Book Caravan</h1>
+    <div class="row">
+        <div class="col s12">
+            <div class="card caravan-booking-card">
+                <div class="card-content">
+                    <div class="row caravan-details">
+                        <div class="col s12 booking-caravan-name">
+                            <p>{{ caravan.name }}</p>
+                        </div>
+                        <div class="col s12 center">
+                            <img src="{{ caravan.img_url }}" alt="caravan-img">
+                        </div>
+                        <div class="col s12">
+                            <p>Bedrooms: {{ caravan.bedrooms}}</p>
+                            <p>Features: {{ caravan.additional_feature}}</p>
+                        </div>
+                    </div>
+                    <form method="POST" action="{{ url_for('caravan_booking', caravan_id=caravan.id)}}">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="first_name" id="first-name" type="text" class="validate">
+                                <label for="first-name">First Name:</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input name="last_name" id="last-name" type="text" class="validate">
+                                <label for="last-name">Last Name:</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="start_date" id="start_date" type="text" class="datepicker validate">
+                                <label for="start-date">Start Date:</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input name="end_date" id="end-date" type="text" class="datepicker validate">
+                                <label for="end-date">End Date:</label>
+                            </div>
+                        </div>
+                        <a href="{{ url_for('caravans')}}" class="btn red accent-3">Cancel</a>
+                        <button type="submit" class="btn blue accent-3">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -210,6 +210,24 @@ main {
 }
 
 
+/* Booking Pages */
+.caravan-details img{
+    width: 150px;
+    height: 125px;
+    margin-bottom: 15px;
+}
+.caravan-booking-card .booking-caravan-name p{
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+.caravan-booking-card form .row{
+    margin: 0;
+}
+.caravan-booking-card form .btn{
+    margin: 15px 10px;
+    margin-bottom: 0;
+}
+
 /* Admin Dashboard */
 .caravan-title, .event-title{
     margin-bottom: 20px;

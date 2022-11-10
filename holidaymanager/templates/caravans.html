@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-small blue accent-3 center">Book</button>
+        <a href="{{ url_for('caravan_booking', caravan_id=caravan.id)}}" class="btn btn-small blue accent-3 center">Book</a>
     </div>
     {% endfor %}
 </div>
