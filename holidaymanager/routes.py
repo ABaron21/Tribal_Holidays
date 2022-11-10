@@ -103,6 +103,33 @@ def events():
     return render_template("events.html", events=events)
 
 
+@app.route("/event-booking/<int:event_id>", methods=["GET", "POST"])
+def event_booking(event_id):
+    event = Events.query.get_or_404(event_id)
+    customers = list(Users.query.order_by(Users.username).all())
+    for customer in customers:
+        if session['user'] == customer.username:
+            customer = customer
+    if request.method == "POST":
+        customer_name = request.form.get('first_name')
+        customer_name += request.form.get('last_name')
+        booking = Event_Bookings(
+            customer=customer_name,
+            user_id=customer.id,
+            event_name=event.name,
+            event_id=event.id,
+            event_date=event.event_date
+        )
+        spots_left = int(
+            event.places_left) - int(request.form.get('spots_wanted'))
+        event.places_left = spots_left
+        db.session.add(booking)
+        db.session.commit()
+        flash("Event has been successfully booked")
+        return redirect(url_for("home"))
+    return render_template("event-booking.html", event=event)
+
+
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     accounts = list(Users.query.order_by(Users.username).all())

@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-small blue accent-3">Book</button>
+        <a href="{{ url_for('event_booking', event_id=event.id) }}" class="btn btn-small blue accent-3">Book</a>
     </div>
     {% endfor %}
 </div>

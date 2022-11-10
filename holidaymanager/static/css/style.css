@@ -211,19 +211,22 @@ main {
 
 
 /* Booking Pages */
-.caravan-details img{
+.caravan-details img,
+.event-details img{
     width: 150px;
     height: 125px;
     margin-bottom: 15px;
 }
-.caravan-booking-card .booking-caravan-name p{
+.caravan-booking-card .booking-caravan-name p,
+.event-booking-card .booking-event-name p{
     font-size: 24px;
     margin-bottom: 15px;
 }
 .caravan-booking-card form .row{
     margin: 0;
 }
-.caravan-booking-card form .btn{
+.caravan-booking-card form .btn,
+.event-booking-card form .btn{
     margin: 15px 10px;
     margin-bottom: 0;
 }
