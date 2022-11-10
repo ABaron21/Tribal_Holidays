@@ -82,6 +82,6 @@ class Event_Bookings(db.Model):
     event_date = db.Column(db.Date, nullable=False)
 
     def __repr__(self):
-        return "Customer Name: {0} | Event: {1} | Date: {2}".format(
-            self.customer, self.event_name, self.event_date
+        return "ID: {0} |Customer Name: {1} | Event: {2} | Date: {3}".format(
+            self.id, self.customer, self.event_name, self.event_date
         )

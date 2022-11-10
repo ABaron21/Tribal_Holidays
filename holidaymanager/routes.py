@@ -136,28 +136,10 @@ def profile(username):
     for account in accounts:
         if username == account.username:
             account = account
-    caravan_bookings = list(Caravan_Bookings.query.all())
-    c_bookings = {
-        "c_name": "",
-        "start_date": "",
-        "end_date": ""
-    }
-    for c_booking in caravan_bookings:
-        if account.id == c_booking.user_id:
-            c_bookings['c_name'] = c_booking.caravan_name
-            c_bookings['start_date'] = c_booking.start_date
-            c_bookings['end_date'] = c_booking.end_date
-    event_bookings = list(Event_Bookings.query.all())
-    e_booking = {
-        "e_name": "",
-        "date": ""
-    }
-    e_bookings = []
-    for event_booking in event_bookings:
-        if account.id == event_booking.user_id:
-            e_booking['e_name'] = event_booking.event_name
-            e_booking['event_date'] = event_booking.event_date
-            e_bookings.append(e_booking)
+    c_bookings = list(Caravan_Bookings.query.all())
+    
+    e_bookings = list(
+        Event_Bookings.query.all())
 
     return render_template(
         "profile.html", account=account,

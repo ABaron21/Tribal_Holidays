@@ -31,37 +31,62 @@
 
     <!-- CaravanBookings -->
     <h5 class="center booking-title">Caravan Bookings</h5>
+    {% for booking in c_bookings %}
+    {% if account.id == booking.user_id %}
     <div class="card caravan-booking">
         <div class="card-content">
             <div class="row">
                 <div class="col s12 booking-details">
-                    <p>{{ c_bookings['c_name'] }}</p>
-                    <p>{{ c_bookings['start_date'] }} - {{ c_bookings['end_date'] }}</p>
+                    <p>{{ booking.caravan_name }}</p>
+                    <p>{{ booking.start_date }} - {{ booking.end_date }}</p>
                 </div>
             </div>
         </div>
-        <div class="col s12 center">
-            <button class="btn btn-small blue accent-3">Cancel Booking</button>
+        <a class="btn btn-small red accent-3 modal-trigger" href="#modal-delete-{{ booking.id }}">Delete</a>
+
+        <!-- Modal Structure -->
+        <div id="modal-delete-{{ booking.id }}" class="modal">
+            <div class="modal-content">
+                <h4 class="center">Are you sure you want to cancel this booking?</h4>
+                <p class="center">{{ booking.caravan_name }}</p>
+                <p class="center">{{ booking.start_date }} - {{ booking.end_date }}</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="modal-close btn btn-small red accent-3">Delete</a>
+            </div>
         </div>
     </div>
+    {% endif %}
+    {% endfor %}
     <hr>
 
     <!-- EventBookings -->
     <h5 class="center booking-title">Event Bookings</h5>
     {% for booking in e_bookings %}
-        <div class="card event-booking">
-            <div class="card-content">
-                <div class="row">
-                    <div class="col s12 booking-details">
-                        <p>{{ booking['e_name'] }}</p>
-                        <p>{{ booking['event_date'] }}</p>
-                    </div>
+    {% if account.id == booking.user_id %}
+    <div class="card event-booking">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 booking-details">
+                    <p>{{ booking.event_name }}</p>
+                    <p>{{ booking.event_date }}</p>
                 </div>
             </div>
-            <div class="col s12 center">
-                <button class="btn btn-small blue accent-3">Cancel Booking</button>
+        </div>
+        <a class="btn btn-small red accent-3 modal-trigger" href="#modal-delete-{{ booking.id }}">Delete</a>
+
+        <!-- Modal Structure -->
+        <div id="modal-delete-{{ booking.id }}" class="modal">
+            <div class="modal-content">
+                <h4 class="center">Are you sure you want to cancel this booking?</h4>
+                <p class="center">{{ booking.event_name }}</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="modal-close btn btn-small red accent-3">Delete</a>
             </div>
         </div>
+    </div>
+    {% endif %}
     {% endfor %}
 </div>
 {% endblock %}
