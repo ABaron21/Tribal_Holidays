@@ -110,7 +110,7 @@ main {
     text-align: center;
 }
 
-/*Register Page*/
+/*Register & Login Page*/
 .register-title, .password-title,
 .change-details-title, .page-title{
     margin-top: 15px;
@@ -118,7 +118,7 @@ main {
     color: #2979ff;
     font-size: 3em;
 }
-.register-card, .change-password-card,
+.register-card, .login-card, .change-password-card,
 .change-details-card, .add-caravan-card,
 .add-event-card, .search-card{
     border-radius: 12px;
@@ -126,6 +126,10 @@ main {
 .signup-btn{
     font-size: 16px;
     margin-left: 100px;
+}
+.login-card .btn,
+.register-card .btn{
+    margin-bottom: 10px;
 }
 
 /*Caravan Page*/
