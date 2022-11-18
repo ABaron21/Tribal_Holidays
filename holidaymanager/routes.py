@@ -9,7 +9,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    caravans = list(Caravans.query.order_by(Caravans.id).all())
+    events = list(Events.query.order_by(Events.id).all())
+    return render_template(
+        "home.html", caravans=caravans, events=events)
 
 
 @app.route("/register", methods=["GET", "POST"])

@@ -4,14 +4,26 @@
     <div class="row">
         <div class="col s12">
             <div class="card hero-card blue accent-3">
+                {% if session['user'] %}
+                <div class="card-content white-text">
+                    <span class="card-title center">Looking to Book Your Next Holiday?</span>
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="sign-up center uppercase">
+                    <a class="btn btn-small white" href="{{ url_for('caravans') }}">Caravans</a>
+                    <a class="btn btn-small white" href="{{ url_for('events') }}">Events</a>
+                </div>
+                {% else %}
                 <div class="card-content white-text">
                     <span class="card-title center">Welcome to Tribal Holidays</span>
                     <p>I am a very simple card. I am good at containing small bits of information.
                         I am convenient because I require little markup to use effectively.</p>
                 </div>
                 <div class="sign-up center uppercase">
-                    <a class="btn white" href="">Sign up Today!</a>
+                    <a class="btn white" href="{{ url_for('register') }}">Sign up Today!</a>
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -19,14 +31,40 @@
 
 <div class="container recommendations">
     <h3 class="center">Recommendations</h3>
-    <div class="row">
-        <div class="image-content col s12">
-            <img src="{{ url_for('static', filename='images/caravan-placeholder.jpg')}}" alt="caravan-placeholder">
-        </div>
-        <div class="text-content col s12">
-            <h5>Caravan Name</h5>
-            <p>Description</p>
-        </div>
-    </div>
+    {% for x in range(4) %}
+        {% if loop.index % 2 != 0 %}
+            {% for caravan in caravans %}
+                {% if caravan.available == True %}
+                <div class="row recommended-item-left">
+                    <div class="image-content col s5">
+                        <img src="{{ caravan.img_url }}" alt="caravan-img">
+                    </div>
+                    <div class="text-content col s7">
+                        <h6>{{ caravan.name }}</h6>
+                        <p>Bedrooms: {{ caravan.bedrooms}}</p>
+                        <p>Features: {{ caravan.additional_feature}}</p>
+                        <a href="{{ url_for('caravan_booking', caravan_id=caravan.id)}}" class="btn btn-small blue accent-3 center">Book</a>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+        {% for event in events %}
+                {% if event.places_left > 0 %}
+                <div class="row recommended-item-right">
+                    <div class="text-content col s7">
+                        <h6>{{ event.name }}</h6>
+                        <p>Date: {{ event.event_date.strftime("%d %B, %Y") }}</p>
+                        <p>Spaces Available: {{ event.places_left }}</p>
+                        <a href="{{ url_for('event_booking', event_id=event.id) }}" class="btn btn-small blue accent-3">Book</a>
+                    </div>
+                    <div class="image-content col s5">
+                        <img src="{{ event.img_url }}" alt="event-img">
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+    {% endif %}
+    {% endfor %}
 </div>
 {% endblock %}

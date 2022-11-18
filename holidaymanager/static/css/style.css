@@ -83,12 +83,28 @@ main {
     color: #2979ff;
     font-size: 18px;
 }
+.recommendations{
+    margin: 10px 10px
+}
+.recommendations h3{
+    margin-left: 20px;
+    color: #2979ff;
+}
+.recommendations .recommended-item-left,
+.recommendations .recommended-item-right{
+    margin-top: 25px;
+    margin-right: 10px;
+}
+.recommended-item-left .text-content{
+    padding-left: 50px;
+}
 .image-content{
     text-align: center;
 }
 .image-content img{
-    width: 200px;
+    width: 175px;
     height: 150px;
+    border-radius: 12px;
 }
 .text-content{
     text-align: center;
@@ -244,11 +260,11 @@ main {
     padding-top: 10px;
     margin-bottom: 10px;
 }
-/* .caravan-bookings .card-content,
+.caravan-bookings .card-content,
 .event-bookings .card-content{
     max-height: 150px;
     overflow: scroll;
-} */
+}
 .table-title{
     font-weight: 700;
     font-size: 1.25rem;
