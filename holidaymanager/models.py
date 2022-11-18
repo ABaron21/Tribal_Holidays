@@ -55,12 +55,13 @@ class Events(db.Model):
 class Caravan_Bookings(db.Model):
     # schema for Bookings model
     id = db.Column(db.Integer, primary_key=True)
-    customer = db.Column(db.String(50), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(
         "users.id", ondelete="CASCADE"), nullable=False)
-    caravan_name = db.Column(db.String(50), nullable=False)
+    customer = db.Column(db.String(50), nullable=False)
     caravan_id = db.Column(
         db.Integer, db.ForeignKey("caravans.id"), nullable=False)
+    caravan_name = db.Column(db.String(50), nullable=False)
+    caravan_img = db.Column(db.String(250), nullable=False)
     start_date = db.Column(db.Date, nullable=False)
     end_date = db.Column(db.Date, nullable=False)
 
@@ -73,15 +74,17 @@ class Caravan_Bookings(db.Model):
 class Event_Bookings(db.Model):
     # schema for Bookings model
     id = db.Column(db.Integer, primary_key=True)
-    customer = db.Column(db.String(50), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(
         "users.id", ondelete="CASCADE"), nullable=False)
-    event_name = db.Column(db.String(50), nullable=False)
+    customer = db.Column(db.String(50), nullable=False)
     event_id = db.Column(
         db.Integer, db.ForeignKey("events.id"), nullable=False)
+    event_name = db.Column(db.String(50), nullable=False)
+    event_img = db.Column(db.String(250), nullable=False)
     event_date = db.Column(db.Date, nullable=False)
+    places_booked = db.Column(db.Integer, nullable=False)
 
     def __repr__(self):
-        return "ID: {0} |Customer Name: {1} | Event: {2} | Date: {3}".format(
-            self.id, self.customer, self.event_name, self.event_date
+        return "Customer: {0} | Event: {1} | Date: {2} | Places: {3}".format(
+            self.customer, self.event_name, self.event_date, self.places_booked
         )

@@ -42,14 +42,14 @@
                 <div class="row">
                     <div class="col s4 center table-title">Customer</div>
                     <div class="col s4 center table-title">Event</div>
-                    <div class="col s4 center table-title">Date</div>
+                    <div class="col s4 center table-title">Places</div>
                 </div>
                 <hr>
                 <div class="card-content">
                     {% for event_booking in event_bookings %}
                     <div class="col s4 center">{{ event_booking.customer }}</div>
                     <div class="col s4 center">{{ event_booking.event_name }}</div>
-                    <div class="col s4 center">{{ event_booking.event_date }}</div>
+                    <div class="col s4 center">{{ event_booking.places_booked }}</div>
                     {% endfor %}
                 </div>
             </div>

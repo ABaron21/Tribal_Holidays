@@ -36,7 +36,11 @@
     <div class="card caravan-booking">
         <div class="card-content">
             <div class="row">
-                <div class="col s12 booking-details">
+                <div class="col s4 caravan-img">
+                    <img src="{{ c_booking.caravan_img }}"
+                        alt="caravan-img">
+                </div>
+                <div class="col s8 booking-details">
                     <p>{{ c_booking.caravan_name }}</p>
                     <p>{{ c_booking.start_date }} - {{ c_booking.end_date }}</p>
                 </div>
@@ -67,7 +71,11 @@
     <div class="card event-booking">
         <div class="card-content">
             <div class="row">
-                <div class="col s12 booking-details">
+                <div class="col s4 event-img">
+                    <img src="{{ e_booking.event_img }}"
+                        alt="event-img">
+                </div>
+                <div class="col s8 booking-details">
                     <p>{{ e_booking.event_name }}</p>
                     <p>{{ e_booking.event_date }}</p>
                 </div>

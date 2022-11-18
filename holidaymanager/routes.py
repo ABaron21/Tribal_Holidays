@@ -127,11 +127,13 @@ def event_booking(event_id):
         customer_name += " "
         customer_name += request.form.get('last_name').lower()
         booking = Event_Bookings(
-            customer=customer_name,
             user_id=customer.id,
-            event_name=event.name,
+            customer=customer_name,
             event_id=event.id,
-            event_date=event.event_date
+            event_name=event.name,
+            event_img=event.img_url,
+            event_date=event.event_date,
+            places_booked=int(request.form.get('spots_wanted'))
         )
         spots_left = int(
             event.places_left) - int(request.form.get('spots_wanted'))
