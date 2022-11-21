@@ -4,4 +4,5 @@ $(document).ready(function(){
         format: "dd mmmm, yyyy",
         i18n: {done: "Select"}});
     $('.modal').modal();
+    $('select').formSelect();
 });

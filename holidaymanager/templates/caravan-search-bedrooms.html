@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <a class="btn back-btn btn-small blue accent-3" href="{{ url_for('caravans')}}"><i class="fa-solid fa-angle-left"></i>Back</a>
+    <h1 class="caravans-title uppercase center">Caravans with {{ num_bedrooms }} bedrooms</h1>
+
+    {% for caravan in caravans%}
+    {% if num_bedrooms == caravan.bedrooms %}
+    <div class="card search-card">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s4 caravan-img">
+                    <img src="{{ caravan.img_url }}"
+                        alt="caravan-img">
+                </div>
+                <div class="col s8 search-info">
+                    <p>{{ caravan.name }}</p>
+                    <p>Bedrooms: {{ caravan.bedrooms}}</p>
+                    <p>Features: {{ caravan.additional_feature}}</p>
+                    {% if caravan.available == True %}
+                        <p>Available: Yes</p>
+                    {% else %}
+                        <p>Available: No</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <a href="{{ url_for('caravan_booking', caravan_id=caravan.id)}}" class="btn btn-small blue accent-3 center">Book</a>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

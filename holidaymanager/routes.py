@@ -69,10 +69,37 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route("/caravans")
+@app.route("/caravans", methods=["GET", "POST"])
 def caravans():
     caravans = list(Caravans.query.order_by(Caravans.id).all())
+    if request.method == "POST":
+        select = request.form.get("select_filter")
+        if select == "bedrooms":
+            search = request.form.get("search")
+            return redirect(
+                url_for('caravan_search_bedrooms', num_bedrooms=search))
+        elif select == "features":
+            search = request.form.get("search")
+            return redirect(
+                url_for('caravan_search_features', feature=search))
     return render_template("caravans.html", caravans=caravans)
+
+
+@app.route("/caravan-search-bedrooms/<int:num_bedrooms>")
+def caravan_search_bedrooms(num_bedrooms):
+    caravans = list(Caravans.query.order_by(Caravans.id).all())
+    return render_template(
+        "caravan-search-bedrooms.html",
+        caravans=caravans, num_bedrooms=num_bedrooms)
+
+
+@app.route("/caravan-search-features/<feature>")
+def caravan_search_features(feature):
+    caravans = list(Caravans.query.order_by(Caravans.id).all())
+    print(feature)
+    return render_template(
+        "caravan-search-features.html",
+        caravans=caravans, feature=feature)
 
 
 @app.route("/caravan-booking/<int:caravan_id>", methods=["GET", "POST"])
@@ -110,10 +137,34 @@ def remove_caravan_booking(c_booking_id):
     return redirect(url_for('profile', username=session['user']))
 
 
-@app.route("/events")
+@app.route("/events", methods=["GET", "POST"])
 def events():
     events = list(Events.query.order_by(Events.id).all())
+    if request.method == "POST":
+        select = request.form.get("select_filter")
+        if select == "spaces":
+            search = request.form.get("search")
+            return redirect(
+                url_for('events_search_spaces', num_spaces=search))
+        elif select == "date":
+            search = request.form.get("search")
+            return redirect(
+                url_for('events_search_date', date=search))
     return render_template("events.html", events=events)
+
+
+@app.route("/events-search-spaces/<int:num_spaces>", methods=["GET", "POST"])
+def events_search_spaces(num_spaces):
+    events = list(Events.query.order_by(Events.id).all())
+    return render_template(
+        "events-search-spaces.html", events=events, num_spaces=num_spaces)
+
+
+@app.route("/events-search-date/<date>", methods=["GET", "POST"])
+def events_search_date(date):
+    events = list(Events.query.order_by(Events.id).all())
+    return render_template(
+        "events-search-date.html", events=events, date=date)
 
 
 @app.route("/event-booking/<int:event_id>", methods=["GET", "POST"])
@@ -162,7 +213,6 @@ def profile(username):
         if username == account.username:
             account = account
     c_bookings = list(Caravan_Bookings.query.all())
-    
     e_bookings = list(
         Event_Bookings.query.all())
 

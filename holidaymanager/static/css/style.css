@@ -138,6 +138,31 @@ main {
     line-height: 40px;
     color: #2979ff;
 }
+.search-panel button{
+    width: 1px;
+    height: 1px;
+    opacity: 0.1;
+    margin: 0;
+    padding: 0;
+}
+.filtr-area{
+    margin: 0;
+}
+.search-filter{
+    margin-top: 20px;
+    margin-bottom: 0;
+    margin-right: 50px;
+    height: 2.2em;
+}
+.search-panel .date-text{
+    margin-top: 10px;
+    padding: 0;
+}
+.date-text{
+    color: #faffff;
+    font-size: 10px;
+    line-height: 75%;
+}
 .search-card .card-content{
     padding: 16px;
 }
@@ -151,6 +176,9 @@ main {
 }
 .card-panel{
     padding: 0;
+}
+.search-input{
+    margin-top: 0;
 }
 .search-input i{
     font-size: 10px;

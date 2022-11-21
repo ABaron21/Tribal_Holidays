@@ -2,15 +2,26 @@
 {% block content %}
 <div class="container">
     <h1 class="caravans-title uppercase center">Find Your Ideal Caravan</h1>
-    <div class="row card-panel blue accent-3">
-        <form action="" class="col s12">
+    <div class="row card-panel search-panel blue accent-3">
+        <form method="POST" action="{{url_for('caravans')}}" class="col s12">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field col s6 search-filter">
+                    <select id="select_filter" name="select_filter">
+                      <option value="" disabled selected>Choose your option</option>
+                      <option value="bedrooms">Bedrooms</option>
+                      <option value="features">Features</option>
+                    </select>
+                    <label>Search By</label>
+                  </div>
+            </div>
             <div class="row valign-wrapper center-align">
                 <div class="input-field search-input col s12">
                     <i class="fa-solid fa-magnifying-glass white-text prefix"></i>
                     <input type="text" name="search" id="search">
-                    <label for="search">Search Caravans</label>   
+                    <label for="search">Search</label>   
                 </div>
             </div>
+            <button class="btn btn-small blue accent-3" type="submit"></button>
         </form>
     </div>
     {% for caravan in caravans%}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <a class="btn back-btn btn-small blue accent-3" href="{{ url_for('events')}}"><i class="fa-solid fa-angle-left"></i>Back</a>
+    <h1 class="events-title uppercase center">Events happening on {{ date }}</h1>
+    {% for event in events%}
+    {% if date == event.event_date.strftime("%d %B, %Y") %}
+    <div class="card search-card">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s4 event-img">
+                    <img src="{{ event.img_url }}"
+                        alt="event-img">
+                </div>
+                <div class="col s8 search-info">
+                    <p>{{ event.name }}</p>
+                    <p>Date: {{ event.event_date.strftime("%d %B, %Y") }}</p>
+                    <p>Spaces Available: {{ event.places_left }}</p>
+                </div>
+            </div>
+        </div>
+        <a href="{{ url_for('event_booking', event_id=event.id) }}" class="btn btn-small blue accent-3">Book</a>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}
