@@ -26,6 +26,25 @@
             class="btn profile-btn btn-small blue accent-3">Change Details</a>
         <a href="{{ url_for('change_password', user_id=account.id )}}"
             class="btn profile-btn btn-small blue accent-3">Change Password</a>
+        <a href="#modal-delete-{{ account.id }}" class="btn profile-btn btn-small red accent-3 modal-trigger">Delete
+            Account</a>
+    </div>
+    <!-- Modal Structure -->
+    <div id="modal-delete-{{ account.id }}" class="modal">
+        <form method="POST" action="{{ url_for('profile', username=account.username) }}">
+            <div class="modal-content">
+                <h4 class="center">Are you sure you want to delete your account?</h4>
+                <p class="center">Be aware that all your bookings will be removed.</p>
+                <div class="input-field">
+                    <input name="password" id="password" type="password" class="validate">
+                    <label for="password"><i class="fa-solid fa-lock"></i> Password:</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-close btn btn-small blue accent-3">Cancel</button>
+                <button type="submit" class="btn btn-small red accent-3">Delete</button>
+            </div>
+        </form>
     </div>
     <hr>
 
@@ -37,8 +56,7 @@
         <div class="card-content">
             <div class="row">
                 <div class="col s4 caravan-img">
-                    <img src="{{ c_booking.caravan_img }}"
-                        alt="caravan-img">
+                    <img src="{{ c_booking.caravan_img }}" alt="caravan-img">
                 </div>
                 <div class="col s8 booking-details">
                     <p>{{ c_booking.caravan_name }}</p>
@@ -56,7 +74,8 @@
                 <p class="center">{{ c_booking.start_date }} - {{ c_booking.end_date }}</p>
             </div>
             <div class="modal-footer">
-                <a href="{{ url_for('remove_caravan_booking', c_booking_id=c_booking.id) }}" class="modal-close btn btn-small red accent-3">Delete</a>
+                <a href="{{ url_for('remove_caravan_booking', c_booking_id=c_booking.id) }}"
+                    class="modal-close btn btn-small red accent-3">Delete</a>
             </div>
         </div>
     </div>
@@ -72,12 +91,12 @@
         <div class="card-content">
             <div class="row">
                 <div class="col s4 event-img">
-                    <img src="{{ e_booking.event_img }}"
-                        alt="event-img">
+                    <img src="{{ e_booking.event_img }}" alt="event-img">
                 </div>
                 <div class="col s8 booking-details">
                     <p>{{ e_booking.event_name }}</p>
                     <p>{{ e_booking.event_date }}</p>
+                    <p>Places Reserved: {{ e_booking.places_booked }}</p>
                 </div>
             </div>
         </div>
@@ -90,7 +109,8 @@
                 <p class="center">{{ e_booking.event_name }}</p>
             </div>
             <div class="modal-footer">
-                <a href="{{ url_for('remove_event_booking', e_booking_id=e_booking.id) }}" class="modal-close btn btn-small red accent-3">Delete</a>
+                <a href="{{ url_for('remove_event_booking', e_booking_id=e_booking.id) }}"
+                    class="modal-close btn btn-small red accent-3">Delete</a>
             </div>
         </div>
     </div>

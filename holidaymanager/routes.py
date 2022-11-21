@@ -113,10 +113,11 @@ def caravan_booking(caravan_id):
         customer_name = request.form.get('first_name')
         customer_name += request.form.get('last_name')
         booking = Caravan_Bookings(
-            customer=customer_name,
             user_id=customer.id,
-            caravan_name=caravan.name,
+            customer=customer_name,
             caravan_id=caravan.id,
+            caravan_name=caravan.name,
+            caravan_img=caravan.img_url,
             start_date=request.form.get('start_date'),
             end_date=request.form.get('end_date')
         )
@@ -131,6 +132,8 @@ def caravan_booking(caravan_id):
 @app.route("/remove-caravan-booking/<int:c_booking_id>")
 def remove_caravan_booking(c_booking_id):
     c_booking = Caravan_Bookings.query.get_or_404(c_booking_id)
+    caravan = Caravans.query.get_or_404(c_booking.caravan_id)
+    caravan.available = True
     db.session.delete(booking)
     db.session.commit()
     flash("Booking has been cancelled")
@@ -200,6 +203,10 @@ def event_booking(event_id):
 @app.route("/remove-event-booking/<int:e_booking_id>")
 def remove_event_booking(e_booking_id):
     e_booking = Event_Bookings.query.get_or_404(e_booking_id)
+    event = Events.query.get_or_404(e_booking.event_id)
+    spots_return = int(
+            event.places_left) + int(e_booking.places_booked)
+    event.places_left = spots_return
     db.session.delete(e_booking)
     db.session.commit()
     flash("Booking has been cancelled")
@@ -215,7 +222,16 @@ def profile(username):
     c_bookings = list(Caravan_Bookings.query.all())
     e_bookings = list(
         Event_Bookings.query.all())
-
+    
+    if request.method == "POST":
+        if check_password_hash(
+                account.password, request.form.get("password")):
+            return redirect(
+                url_for('delete_account', account_id=account.id))
+        else:
+            flash("Sorry, password is incorrect.")
+            return redirect(
+                url_for('profile', username=account.username))
     return render_template(
         "profile.html", account=account,
         c_bookings=c_bookings, e_bookings=e_bookings)
@@ -258,6 +274,16 @@ def change_details(user_id):
         session['user'] = request.form.get("username")
         return redirect(url_for('profile', username=session['user']))
     return render_template("change-details.html", user=user)
+
+
+@app.route("/delete-account/<int:account_id>")
+def delete_account(account_id):
+    account = Users.query.get_or_404(account_id)
+    db.session.delete(account)
+    db.session.commit()
+    session.pop("user")
+    flash("Account has been successfully deleted")
+    return redirect(url_for('home'))
 
 
 @app.route("/admin-dashboard")
