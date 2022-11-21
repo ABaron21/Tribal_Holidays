@@ -93,6 +93,7 @@ def caravan_booking(caravan_id):
             start_date=request.form.get('start_date'),
             end_date=request.form.get('end_date')
         )
+        caravan.available = False
         db.session.add(booking)
         db.session.commit()
         flash("Caravan has been successfully booked")
@@ -235,10 +236,21 @@ def add_caravan():
     return render_template("add-caravan.html")
 
 
-@app.route("/edit-caravan-search")
+@app.route("/edit-caravan-search", methods=["GET", "POST"])
 def edit_caravan_search():
     caravans = list(Caravans.query.order_by(Caravans.id).all())
+    if request.method == "POST":
+        name = request.form.get("search")
+        return redirect(url_for('edit_caravan_searched', caravan_name=name))
     return render_template("edit-caravan-search.html", caravans=caravans)
+
+
+@app.route("/edit-caravan-searched/<caravan_name>", methods=["GET", "POST"])
+def edit_caravan_searched(caravan_name):
+    caravans = list(Caravans.query.order_by(Caravans.id).all())
+    return render_template(
+        "edit-caravan-searched.html",
+        caravans=caravans, caravan_name=caravan_name)
 
 
 @app.route("/edit-caravan/<int:caravan_id>", methods=["GET", "POST"])
@@ -291,10 +303,20 @@ def add_event():
     return render_template("add-event.html")
 
 
-@app.route("/edit-event-search")
+@app.route("/edit-event-search", methods=["GET", "POST"])
 def edit_event_search():
     events = list(Events.query.order_by(Events.id).all())
+    if request.method == "POST":
+        name = request.form.get("search")
+        return redirect(url_for('edit_event_searched', event_name=name))
     return render_template("edit-event-search.html", events=events)
+
+
+@app.route("/edit-event-searched/<event_name>", methods=["GET", "POST"])
+def edit_event_searched(event_name):
+    events = list(Events.query.order_by(Events.id).all())
+    return render_template(
+        "edit-event-searched.html", events=events, event_name=event_name)
 
 
 @app.route("/edit-event/<int:event_id>", methods=["GET", "POST"])
