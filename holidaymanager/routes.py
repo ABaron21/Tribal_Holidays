@@ -5,14 +5,21 @@ from holidaymanager import app, db
 from holidaymanager.models import Users, Caravans, Events
 from holidaymanager.models import Caravan_Bookings, Event_Bookings
 from werkzeug.security import generate_password_hash, check_password_hash
+import random
 
 
 @app.route("/")
 def home():
     caravans = list(Caravans.query.order_by(Caravans.id).all())
+    c_index = caravans[-1]
+    c_one = Caravans.query.get_or_404(random.randint(1, c_index.id))
+    c_two = Caravans.query.get_or_404(random.randint(1, c_index.id))
     events = list(Events.query.order_by(Events.id).all())
+    e_index = events[-1]
+    e_one = Events.query.get_or_404(random.randint(1, e_index.id))
+    e_two = Events.query.get_or_404(random.randint(1, e_index.id))
     return render_template(
-        "home.html", caravans=caravans, events=events)
+        "home.html", c_one=c_one, c_two=c_two, e_one=e_one, e_two=e_two)
 
 
 @app.route("/register", methods=["GET", "POST"])
