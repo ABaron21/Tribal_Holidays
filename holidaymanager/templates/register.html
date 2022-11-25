@@ -19,7 +19,7 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="username" id="username" type="text" class="validate" required>
+                                <input name="username" id="username" type="text" minlength="5" maxlength="25" pattern="^[a-zA-Z0-9]{5,25}" class="validate" required>
                                 <label for="username"><i class="fa-solid fa-user"></i> Username:</label>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="password" id="password" type="password" class="validate" required>
+                                <input name="password" id="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}" class="validate" required>
                                 <label for="password"><i class="fa-solid fa-lock"></i> Password:</label>
                             </div>
                         </div>

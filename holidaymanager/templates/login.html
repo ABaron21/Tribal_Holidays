@@ -9,13 +9,13 @@
                     <form method="POST" action="{{ url_for('login') }}">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="username" id="username" type="text" class="validate">
+                                <input name="username" id="username" type="text" class="validate" required>
                                 <label for="username"><i class="fa-solid fa-user"></i> Username:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="password" id="password" type="password" class="validate">
+                                <input name="password" id="password" type="password" class="validate" required>
                                 <label for="password"><i class="fa-solid fa-lock"></i> Password:</label>
                             </div>
                         </div>

@@ -154,6 +154,12 @@ main {
     margin-right: 50px;
     height: 2.2em;
 }
+.caravan-search-filter{
+    margin-top: 20px;
+    margin-bottom: 0;
+    margin-right: 150px;
+    height: 2.2em;
+}
 .search-panel .date-text{
     margin-top: 10px;
     padding: 0;

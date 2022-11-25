@@ -9,25 +9,25 @@
                     <form method="POST" action="{{ url_for('add_event') }}">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="event_name" id="event-name" type="text" class="validate">
+                                <input name="event_name" id="event-name" type="text" class="validate" required>
                                 <label for="event-name">Event Name:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="img_url" id="img-url" type="url" class="validate">
+                                <input name="img_url" id="img-url" type="url" class="validate" required>
                                 <label for="img-url"><i class="fa-solid fa-image"></i> Image URL:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="event_date" id="event-date" type="text" class="datepicker validate">
+                                <input name="event_date" id="event-date" type="text" class="datepicker validate" required>
                                 <label for="event-date"><i class="fa-solid fa-calendar-days"></i> Event Date:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="places_available" id="places-available" type="number" class="validate">
+                                <input name="places_available" id="places-available" type="number" class="validate" required>
                                 <label for="places-available">Places Available:</label>
                             </div>
                         </div>

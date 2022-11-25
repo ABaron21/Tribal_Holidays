@@ -7,8 +7,8 @@
                 {% if session['user'] %}
                 <div class="card-content white-text">
                     <span class="card-title center">Looking to Book Your Next Holiday?</span>
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
+                    <p>Thinking about staying with Tribal Holidays again?</p>
+                    <p>Why not check out our other Caravans and Events for a different expierience.</p>
                 </div>
                 <div class="sign-up center uppercase">
                     <a class="btn btn-small white" href="{{ url_for('caravans') }}">Caravans</a>
@@ -17,8 +17,9 @@
                 {% else %}
                 <div class="card-content white-text">
                     <span class="card-title center">Welcome to Tribal Holidays</span>
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
+                    <p>Looking for somewhere different for your next family holiday or just a peaceful get away?</p>
+                    <p>Here at Tribal Holidays we have a range of Caravans and Events that will fulfil your holiday
+                        thrill.</p>
                 </div>
                 <div class="sign-up center uppercase">
                     <a class="btn white" href="{{ url_for('register') }}">Sign up Today!</a>

@@ -21,21 +21,21 @@
                     <form method="POST" action="{{ url_for('caravan_booking', caravan_id=caravan.id)}}">
                         <div class="row">
                             <div class="input-field col s6">
-                                <input name="first_name" id="first-name" type="text" class="validate">
+                                <input name="first_name" id="first-name" type="text" class="validate" required>
                                 <label for="first-name">First Name:</label>
                             </div>
                             <div class="input-field col s6">
-                                <input name="last_name" id="last-name" type="text" class="validate">
+                                <input name="last_name" id="last-name" type="text" class="validate" required>
                                 <label for="last-name">Last Name:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="start_date" id="start_date" type="text" class="datepicker validate">
+                                <input name="start_date" id="start_date" type="text" class="datepicker validate" required>
                                 <label for="start-date">Start Date:</label>
                             </div>
                             <div class="input-field col s12">
-                                <input name="end_date" id="end-date" type="text" class="datepicker validate">
+                                <input name="end_date" id="end-date" type="text" class="datepicker validate" required>
                                 <label for="end-date">End Date:</label>
                             </div>
                         </div>

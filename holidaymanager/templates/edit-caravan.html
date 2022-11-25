@@ -9,26 +9,26 @@
                     <form method="POST" action="{{ url_for('edit_caravan', caravan_id=caravan.id) }}">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="caravan_name" id="caravan-name" value="{{ caravan.name }}" type="text" class="validate">
+                                <input name="caravan_name" id="caravan-name" value="{{ caravan.name }}" type="text" class="validate" required>
                                 <label for="caravan-name">Caravan Name:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="img_url" id="img-url" value="{{ caravan.img_url }}" type="url" class="validate">
+                                <input name="img_url" id="img-url" value="{{ caravan.img_url }}" type="url" class="validate" required>
                                 <label for="img-url"><i class="fa-solid fa-image"></i> Image URL:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
                                 <input name="num_bedrooms" id="num-bedrooms" value="{{ caravan.bedrooms }}" type="number"
-                                    class="validate">
+                                    class="validate" required>
                                 <label for="num-bedrooms"><i class="fa-solid fa-bed"></i> Number of Bedrooms:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea name="additional_features" id="additional-features" class="materialize-textarea">
+                                <textarea name="additional_features" id="additional-features" class="materialize-textarea" required>
                                     {{- caravan.additional_feature -}}
                                 </textarea>
                                 <label for="additional-features">Additional Features:</label>

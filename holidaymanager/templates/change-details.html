@@ -9,23 +9,23 @@
                     <form method="POST" action="{{ url_for('change_details', user_id=user.id) }}">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="username" id="username" value="{{ user.username }}" type="text" class="validate">
+                                <input name="username" id="username" value="{{ user.username }}" type="text" minlength="5" maxlength="25" pattern="^[a-zA-Z0-9]{5,25}" class="validate" required>
                                 <label for="username"><i class="fa-solid fa-user"></i> Username:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input name="first_name" id="first-name" value="{{ user.first_name }}" type="text" class="validate">
+                                <input name="first_name" id="first-name" value="{{ user.first_name }}" type="text" class="validate" required>
                                 <label for="first-name">First Name:</label>
                             </div>
                             <div class="input-field col s6">
-                                <input name="last_name" id="last-name" value="{{ user.last_name }}" type="text" class="validate">
+                                <input name="last_name" id="last-name" value="{{ user.last_name }}" type="text" class="validate" required>
                                 <label for="last-name">Last Name:</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input name="email" id="email" value="{{ user.email }}" type="email" class="validate">
+                                <input name="email" id="email" value="{{ user.email }}" type="email" class="validate" required>
                                 <label for="email"><i class="fa-solid fa-envelope"></i> Email:</label>
                             </div>
                         </div>
