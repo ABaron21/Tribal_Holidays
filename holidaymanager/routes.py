@@ -229,7 +229,6 @@ def profile(username):
     c_bookings = list(Caravan_Bookings.query.all())
     e_bookings = list(
         Event_Bookings.query.all())
-    
     if request.method == "POST":
         if check_password_hash(
                 account.password, request.form.get("password")):
@@ -286,6 +285,20 @@ def change_details(user_id):
 @app.route("/delete-account/<int:account_id>")
 def delete_account(account_id):
     account = Users.query.get_or_404(account_id)
+    c_bookings = list(Caravan_Bookings.query.all())
+    for c_booking in c_bookings:
+        if c_booking.user_id == account_id:
+            c_booking = c_booking
+    e_bookings = list(Event_Bookings.query.all())
+    for e_booking in e_bookings:
+        if e_booking.user_id == account_id:
+            e_booking = e_booking
+    caravan = Caravans.query.get_or_404(c_booking.caravan_id)
+    caravan.available = True
+    event = Events.query.get_or_404(e_booking.event_id)
+    spots_return = int(
+            event.places_left) + int(e_booking.places_booked)
+    event.places_left = spots_return
     db.session.delete(account)
     db.session.commit()
     session.pop("user")
