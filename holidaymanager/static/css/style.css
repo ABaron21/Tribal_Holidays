@@ -315,11 +315,140 @@ main {
 .search-panel .btn{
     margin-bottom: 10px;
 }
-.modal-content img{
+.delete-caravan img{
     margin-left: 45px;
     width: 200px;
     height: 150px;
 }
 .back-btn{
     margin-top: 15px;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px) {
+    /* Home Page */
+    .recommendations{
+        margin-left: 20px;
+    }
+    .recommendations .col.s7 {
+        margin-left: 0;
+    }
+    .recommended-item-left .col.m4 {
+        margin-left: 160px;
+    }
+    .recommendations .recommended-item-left,
+    .recommendations .recommended-item-right{
+        margin: 0;
+    }
+    .recommended-item-left,
+    .recommended-item-right{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .recommended-item-right img{
+        margin-left: 50px;
+    }
+    .recommended-item-right .image-content,
+    .recommended-item-left .image-content{
+        padding: 0;
+    }
+    .recommended-item-right .text-content,
+    .recommended-item-left .text-content{
+        width: 100px;
+        padding: 0;
+    }
+    .recommended-item-left .text-content{
+        margin-left: 160px;
+    }
+
+    /* Login & Register Page */
+    .signup-btn{
+        margin-left: 250px;
+    }
+
+    /* Caravan & Event Page */
+    .search-card, .caravan-booking,
+    .event-booking{
+        width: 500px;
+        margin: 10px auto;
+    }
+    .search-card .card-content,
+    .caravan-booking .card-content,
+    .event-booking .card-content{
+        padding: 16px 16px 0 16px;
+    }
+    .search-card .row{
+        margin-bottom: 0;
+    }
+    .caravan-img img{
+        width: 175px;
+        height: 150px;
+    }
+    .event-img img{
+        width: 150px;
+        height: 125px;
+    }
+    .search-card .search-info p{
+        font-size: 17px;
+    }
+    .search-card .btn{
+        margin-left: 300px;
+        font-size: 1.25rem;
+    }
+    .caravan-search-filter{
+        margin-right: 290px;
+        height: 2.2em;
+    }
+
+    /* Admin Dashboard */
+    .delete-caravan img{
+        margin-left: 175px;
+        width: 220px;
+        height: 170px;
+    }
+    .delete-event p{
+        font-size: 16px;
+    }
+    .delete-caravan .modal-content,
+    .delete-event .modal-content{
+        padding: 24px 24px 0 24px;
+    }
+    .delete-caravan .modal-footer .btn,
+    .delete-event .modal-footer .btn{
+        margin-right: 20px;
+    }
+
+    /* Profile Page */
+    .profile-details .details-field{
+        margin-top: 10px;
+    }
+    .detail-actions{
+        margin-left: 90px;
+        margin-bottom: 10px;
+    }
+    .detail-actions a{
+        margin: 10px 20px;
+    }
+    .caravan-booking,
+    .event-booking{
+        width: 500px;
+        margin: 10px auto;
+    }
+    .caravan-booking .card-content,
+    .event-booking .card-content{
+        padding: 16px 16px 0 16px;
+    }
+    .caravan-booking .row,
+    .event-booking .row{
+        margin-bottom: 0;
+    }
+    .caravan-booking .btn,
+    .event-booking .btn{
+        margin-left: 300px;
+        font-size: 1.25rem;
+    }
+    .caravan-booking .booking-details p,
+    .event-booking .booking-details p{
+        font-size: 17px;
+    }
 }

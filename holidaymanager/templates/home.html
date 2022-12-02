@@ -30,53 +30,67 @@
     </div>
 </div>
 
-<div class="container recommendations">
+<div class="container-fluid recommendations">
     <h3 class="center">Recommendations</h3>
 
-    <div class="row recommended-item-left">
-        <div class="image-content col s5">
-            <img src="{{ c_one.img_url }}" alt="caravan-img">
+    <div class="row">
+        <div class="col s12 m6 recommended-item-left">
+            <div class="row">
+                <div class="image-content col s5 m2">
+                    <img src="{{ c_one.img_url }}" alt="caravan-img">
+                </div>
+                <div class="text-content col s7 m4">
+                    <h6>{{ c_one.name }}</h6>
+                    <p>Bedrooms: {{ c_one.bedrooms}}</p>
+                    <p>Features: {{ c_one.additional_feature}}</p>
+                    <a href="{{ url_for('caravan_booking', caravan_id=c_one.id)}}"
+                        class="btn btn-small blue accent-3 center">Book</a>
+                </div>
+            </div>
         </div>
-        <div class="text-content col s7">
-            <h6>{{ c_one.name }}</h6>
-            <p>Bedrooms: {{ c_one.bedrooms}}</p>
-            <p>Features: {{ c_one.additional_feature}}</p>
-            <a href="{{ url_for('caravan_booking', caravan_id=c_one.id)}}"
-                class="btn btn-small blue accent-3 center">Book</a>
-        </div>
-    </div>
-    <div class="row recommended-item-right">
-        <div class="text-content col s7">
-            <h6>{{ e_one.name }}</h6>
-            <p>Date: {{ e_one.event_date.strftime("%d %B, %Y") }}</p>
-            <p>Spaces Available: {{ e_one.places_left }}</p>
-            <a href="{{ url_for('event_booking', event_id=e_one.id) }}" class="btn btn-small blue accent-3">Book</a>
-        </div>
-        <div class="image-content col s5">
-            <img src="{{ e_one.img_url }}" alt="event-img">
-        </div>
-    </div>
-    <div class="row recommended-item-left">
-        <div class="image-content col s5">
-            <img src="{{ c_two.img_url }}" alt="caravan-img">
-        </div>
-        <div class="text-content col s7">
-            <h6>{{ c_two.name }}</h6>
-            <p>Bedrooms: {{ c_two.bedrooms}}</p>
-            <p>Features: {{ c_two.additional_feature}}</p>
-            <a href="{{ url_for('caravan_booking', caravan_id=c_two.id)}}"
-                class="btn btn-small blue accent-3 center">Book</a>
+        <div class="col s12 m6">
+            <div class="row recommended-item-right">
+                <div class="text-content col s7 m4">
+                    <h6>{{ e_one.name }}</h6>
+                    <p>Date: {{ e_one.event_date.strftime("%d %B, %Y") }}</p>
+                    <p>Spaces Available: {{ e_one.places_left }}</p>
+                    <a href="{{ url_for('event_booking', event_id=e_one.id) }}"
+                        class="btn btn-small blue accent-3">Book</a>
+                </div>
+                <div class="image-content col s5 m2">
+                    <img src="{{ e_one.img_url }}" alt="event-img">
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row recommended-item-right">
-        <div class="text-content col s7">
-            <h6>{{ e_two.name }}</h6>
-            <p>Date: {{ e_two.event_date.strftime("%d %B, %Y") }}</p>
-            <p>Spaces Available: {{ e_two.places_left }}</p>
-            <a href="{{ url_for('event_booking', event_id=e_two.id) }}" class="btn btn-small blue accent-3">Book</a>
+    <div class="row">
+        <div class="col s12 m6 recommended-item-left">
+            <div class="row">
+                <div class="image-content col s5 m2">
+                    <img src="{{ c_two.img_url }}" alt="caravan-img">
+                </div>
+                <div class="text-content col s7 m4">
+                    <h6>{{ c_two.name }}</h6>
+                    <p>Bedrooms: {{ c_two.bedrooms}}</p>
+                    <p>Features: {{ c_two.additional_feature}}</p>
+                    <a href="{{ url_for('caravan_booking', caravan_id=c_two.id)}}"
+                        class="btn btn-small blue accent-3 center">Book</a>
+                </div>
+            </div>
         </div>
-        <div class="image-content col s5">
-            <img src="{{ e_two.img_url }}" alt="event-img">
+        <div class="col s12 m6">
+            <div class="row recommended-item-right">
+                <div class="text-content col s7 m4">
+                    <h6>{{ e_two.name }}</h6>
+                    <p>Date: {{ e_two.event_date.strftime("%d %B, %Y") }}</p>
+                    <p>Spaces Available: {{ e_two.places_left }}</p>
+                    <a href="{{ url_for('event_booking', event_id=e_two.id) }}"
+                        class="btn btn-small blue accent-3">Book</a>
+                </div>
+                <div class="image-content col s5 m2">
+                    <img src="{{ e_two.img_url }}" alt="event-img">
+                </div>
+            </div>
         </div>
     </div>
 </div>

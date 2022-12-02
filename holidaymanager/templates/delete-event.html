@@ -32,12 +32,12 @@
         <a class="btn btn-small red accent-3 modal-trigger" href="#modal-delete-{{ event.id }}">Delete</a>
 
         <!-- Modal Structure -->
-        <div id="modal-delete-{{ event.id }}" class="modal">
+        <div id="modal-delete-{{ event.id }}" class="modal delete-event">
             <div class="modal-content">
                 <h4 class="center">Are you sure you want to delete this event?</h4>
-                <p>{{ event.name }}</p>
-                <p>Date: {{ event.event_date.strftime("%d %B, %Y") }}</p>
-                <p>Spaces Available: {{ event.places_left }}</p>
+                <p class="center">{{ event.name }}</p>
+                <p class="center">Date: {{ event.event_date.strftime("%d %B, %Y") }}</p>
+                <p class="center">Spaces Available: {{ event.places_left }}</p>
             </div>
             <div class="modal-footer">
                 <a href="{{ url_for('remove_event', event_id=event.id)}}" class="modal-close btn btn-small red accent-3">Delete</a>

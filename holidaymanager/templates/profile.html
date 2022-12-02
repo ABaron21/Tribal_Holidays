@@ -22,15 +22,17 @@
                 </div>
             </div>
         </div>
-        <a href="{{ url_for('change_details', user_id=account.id )}}"
-            class="btn profile-btn btn-small blue accent-3">Change Details</a>
-        <a href="{{ url_for('change_password', user_id=account.id )}}"
-            class="btn profile-btn btn-small blue accent-3">Change Password</a>
-        <a href="#modal-delete-{{ account.id }}" class="btn profile-btn btn-small red accent-3 modal-trigger">Delete
-            Account</a>
+        <div class="detail-actions">
+            <a href="{{ url_for('change_details', user_id=account.id )}}"
+                class="btn profile-btn btn-small blue accent-3">Change Details</a>
+            <a href="{{ url_for('change_password', user_id=account.id )}}"
+                class="btn profile-btn btn-small blue accent-3">Change Password</a>
+            <a href="#account-delete-{{ account.id }}" class="btn profile-btn btn-small red accent-3 modal-trigger">Delete
+                Account</a>
+        </div>
     </div>
     <!-- Modal Structure -->
-    <div id="modal-delete-{{ account.id }}" class="modal">
+    <div id="account-delete-{{ account.id }}" class="modal">
         <form method="POST" action="{{ url_for('profile', username=account.username) }}">
             <div class="modal-content">
                 <h4 class="center">Are you sure you want to delete your account?</h4>
@@ -64,14 +66,18 @@
                 </div>
             </div>
         </div>
-        <a class="btn btn-small red accent-3 modal-trigger" href="#modal-delete-{{ c_booking.id }}">Delete</a>
+        <a class="btn btn-small red accent-3 modal-trigger" href="#caravan-delete-{{ c_booking.id }}">Delete</a>
 
         <!-- Modal Structure -->
-        <div id="modal-delete-{{ c_booking.id }}" class="modal">
+        <div id="caravan-delete-{{ c_booking.id }}" class="modal">
             <div class="modal-content">
                 <h4 class="center">Are you sure you want to cancel this booking?</h4>
                 <p class="center">{{ c_booking.caravan_name }}</p>
                 <p class="center">{{ c_booking.start_date }} - {{ c_booking.end_date }}</p>
+                <div class="input-field">
+                    <input name="password" id="password" type="password" class="validate" required>
+                    <label for="password"><i class="fa-solid fa-lock"></i> Password:</label>
+                </div>
             </div>
             <div class="modal-footer">
                 <a href="{{ url_for('remove_caravan_booking', c_booking_id=c_booking.id) }}"
@@ -100,13 +106,17 @@
                 </div>
             </div>
         </div>
-        <a class="btn btn-small red accent-3 modal-trigger" href="#modal-delete-{{ e_booking.id }}">Delete</a>
+        <a class="btn btn-small red accent-3 modal-trigger" href="#event-delete-{{ e_booking.id }}">Delete</a>
 
         <!-- Modal Structure -->
-        <div id="modal-delete-{{ e_booking.id }}" class="modal">
+        <div id="event-delete-{{ e_booking.id }}" class="modal">
             <div class="modal-content">
                 <h4 class="center">Are you sure you want to cancel this booking?</h4>
                 <p class="center">{{ e_booking.event_name }}</p>
+                <div class="input-field">
+                    <input name="password" id="password" type="password" class="validate" required>
+                    <label for="password"><i class="fa-solid fa-lock"></i> Password:</label>
+                </div>
             </div>
             <div class="modal-footer">
                 <a href="{{ url_for('remove_event_booking', e_booking_id=e_booking.id) }}"
