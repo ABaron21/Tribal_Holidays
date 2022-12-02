@@ -47,9 +47,9 @@
                 <hr>
                 <div class="card-content">
                     {% for event_booking in event_bookings %}
-                    <div class="col s4 center">{{ event_booking.customer }}</div>
-                    <div class="col s4 center">{{ event_booking.event_name }}</div>
-                    <div class="col s4 center">{{ event_booking.places_booked }}</div>
+                    <div class="col s4 center"><p>{{ event_booking.customer }}</p></div>
+                    <div class="col s4 center"><p>{{ event_booking.event_name }}</p></div>
+                    <div class="col s4 center"><p>{{ event_booking.places_booked }}</p></div>
                     {% endfor %}
                 </div>
             </div>

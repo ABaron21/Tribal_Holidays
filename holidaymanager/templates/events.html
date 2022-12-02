@@ -7,9 +7,9 @@
             <div class="row valign-wrapper filter-area">
                 <div class="input-field col s6 search-filter">
                     <select id="select_filter" name="select_filter">
-                      <option value="" disabled selected>Choose your option</option>
-                      <option value="spaces">Spaces</option>
-                      <option value="date">Date</option>
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="spaces">Spaces</option>
+                        <option value="date">Date</option>
                     </select>
                     <label>Search By</label>
                 </div>
@@ -22,29 +22,32 @@
                 <div class="input-field search-input col s12">
                     <i class="fa-solid fa-magnifying-glass white-text prefix"></i>
                     <input type="text" name="search" id="search">
-                    <label for="search">Search</label>   
+                    <label for="search">Search</label>
                 </div>
             </div>
             <button class="btn btn-small blue accent-3" type="submit"></button>
         </form>
     </div>
-    {% for event in events%}
-    <div class="card search-card">
-        <div class="card-content">
-            <div class="row">
-                <div class="col s4 event-img">
-                    <img src="{{ event.img_url }}"
-                        alt="event-img">
+    <div class="row">
+        {% for event in events%}
+        <div class="col s12 m6">
+            <div class="card search-card">
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col s4 event-img">
+                            <img src="{{ event.img_url }}" alt="event-img">
+                        </div>
+                        <div class="col s8 search-info">
+                            <p>{{ event.name }}</p>
+                            <p>Date: {{ event.event_date.strftime("%d %B, %Y") }}</p>
+                            <p>Spaces Available: {{ event.places_left }}</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col s8 search-info">
-                    <p>{{ event.name }}</p>
-                    <p>Date: {{ event.event_date.strftime("%d %B, %Y") }}</p>
-                    <p>Spaces Available: {{ event.places_left }}</p>
-                </div>
+                <a href="{{ url_for('event_booking', event_id=event.id) }}" class="btn btn-small blue accent-3">Book</a>
             </div>
         </div>
-        <a href="{{ url_for('event_booking', event_id=event.id) }}" class="btn btn-small blue accent-3">Book</a>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}

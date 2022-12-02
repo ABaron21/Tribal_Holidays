@@ -118,6 +118,7 @@ def caravan_booking(caravan_id):
             customer = customer
     if request.method == "POST":
         customer_name = request.form.get('first_name')
+        customer_name += " "
         customer_name += request.form.get('last_name')
         booking = Caravan_Bookings(
             user_id=customer.id,
@@ -185,9 +186,9 @@ def event_booking(event_id):
         if session['user'] == customer.username:
             customer = customer
     if request.method == "POST":
-        customer_name = request.form.get('first_name').lower()
+        customer_name = request.form.get('first_name')
         customer_name += " "
-        customer_name += request.form.get('last_name').lower()
+        customer_name += request.form.get('last_name')
         booking = Event_Bookings(
             user_id=customer.id,
             customer=customer_name,

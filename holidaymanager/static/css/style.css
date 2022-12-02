@@ -452,3 +452,63 @@ main {
         font-size: 17px;
     }
 }
+
+@media screen and (min-width: 1024px) {
+    .logo-text{
+        margin-left: 15px;
+    }
+    /* Home Page */
+    .hero-card{
+        width: 700px;
+        margin-left: 150px;
+    }
+    .recommendations{
+        margin-left: 75px;
+    }
+    .recommendations h3{
+        margin-left: -50px;
+    }
+
+    /* Login & Register Page */
+    .signup-btn{
+        margin-left: 280px;
+    }
+
+    /* Caravan & Event Page */
+    .search-card{
+        width: 325px;
+    }
+    .search-card .search-info p{
+        font-size: 15px;
+        margin-left: 45px;
+    }
+    .caravan-search-filter{
+        margin-right: 315px;
+    }
+    .caravan-img img{
+        width: 150px;
+        height: 125px;
+    }
+    .search-card .btn{
+        margin-left: 220px;
+    }
+    .date-text{
+        font-size: 14px;
+        line-height: 80%;
+    }
+    .search-panel .filter-area{
+        margin-bottom: 0;
+    }
+    .search-filter{
+        margin-right: 30px;
+    }
+    /* Profile Page */
+    .detail-actions{
+        margin-left: 125px;
+    }
+    /* Admin Dashboard */
+    .caravan-bookings .card-content p,
+    .event-bookings .card-content p{
+        font-size: 18px;
+    }
+}
