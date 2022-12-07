@@ -27,7 +27,8 @@
                 class="btn profile-btn btn-small blue accent-3">Change Details</a>
             <a href="{{ url_for('change_password', user_id=account.id )}}"
                 class="btn profile-btn btn-small blue accent-3">Change Password</a>
-            <a href="#account-delete-{{ account.id }}" class="btn profile-btn btn-small red accent-3 modal-trigger">Delete
+            <a href="#account-delete-{{ account.id }}"
+                class="btn profile-btn btn-small red accent-3 modal-trigger">Delete
                 Account</a>
         </div>
     </div>
@@ -52,79 +53,87 @@
 
     <!-- CaravanBookings -->
     <h5 class="center booking-title">Caravan Bookings</h5>
-    {% for c_booking in c_bookings %}
-    {% if account.id == c_booking.user_id %}
-    <div class="card caravan-booking">
-        <div class="card-content">
-            <div class="row">
-                <div class="col s4 caravan-img">
-                    <img src="{{ c_booking.caravan_img }}" alt="caravan-img">
+    <div class="row">
+        {% for c_booking in c_bookings %}
+        {% if account.id == c_booking.user_id %}
+        <div class="col s12 m6">
+            <div class="card caravan-booking">
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col s4 caravan-img">
+                            <img src="{{ c_booking.caravan_img }}" alt="caravan-img">
+                        </div>
+                        <div class="col s8 booking-details">
+                            <p>{{ c_booking.caravan_name }}</p>
+                            <p>{{ c_booking.start_date }} - {{ c_booking.end_date }}</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col s8 booking-details">
-                    <p>{{ c_booking.caravan_name }}</p>
-                    <p>{{ c_booking.start_date }} - {{ c_booking.end_date }}</p>
-                </div>
-            </div>
-        </div>
-        <a class="btn btn-small red accent-3 modal-trigger" href="#caravan-delete-{{ c_booking.id }}">Delete</a>
+                <a class="btn btn-small red accent-3 modal-trigger" href="#caravan-delete-{{ c_booking.id }}">Delete</a>
 
-        <!-- Modal Structure -->
-        <div id="caravan-delete-{{ c_booking.id }}" class="modal">
-            <div class="modal-content">
-                <h4 class="center">Are you sure you want to cancel this booking?</h4>
-                <p class="center">{{ c_booking.caravan_name }}</p>
-                <p class="center">{{ c_booking.start_date }} - {{ c_booking.end_date }}</p>
-                <div class="input-field">
-                    <input name="password" id="password" type="password" class="validate" required>
-                    <label for="password"><i class="fa-solid fa-lock"></i> Password:</label>
+                <!-- Modal Structure -->
+                <div id="caravan-delete-{{ c_booking.id }}" class="modal">
+                    <div class="modal-content">
+                        <h4 class="center">Are you sure you want to cancel this booking?</h4>
+                        <p class="center">{{ c_booking.caravan_name }}</p>
+                        <p class="center">{{ c_booking.start_date }} - {{ c_booking.end_date }}</p>
+                        <div class="input-field">
+                            <input name="password" id="password" type="password" class="validate" required>
+                            <label for="password"><i class="fa-solid fa-lock"></i> Password:</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ url_for('remove_caravan_booking', c_booking_id=c_booking.id) }}"
+                            class="modal-close btn btn-small red accent-3">Delete</a>
+                    </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <a href="{{ url_for('remove_caravan_booking', c_booking_id=c_booking.id) }}"
-                    class="modal-close btn btn-small red accent-3">Delete</a>
-            </div>
         </div>
+        {% endif %}
+        {% endfor %}
     </div>
-    {% endif %}
-    {% endfor %}
     <hr>
 
     <!-- EventBookings -->
     <h5 class="center booking-title">Event Bookings</h5>
-    {% for e_booking in e_bookings %}
-    {% if account.id == e_booking.user_id %}
-    <div class="card event-booking">
-        <div class="card-content">
-            <div class="row">
-                <div class="col s4 event-img">
-                    <img src="{{ e_booking.event_img }}" alt="event-img">
+    <div class="row">
+        {% for e_booking in e_bookings %}
+        {% if account.id == e_booking.user_id %}
+        <div class="col s12 m6">
+            <div class="card event-booking">
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col s4 event-img">
+                            <img src="{{ e_booking.event_img }}" alt="event-img">
+                        </div>
+                        <div class="col s8 booking-details">
+                            <p>{{ e_booking.event_name }}</p>
+                            <p>{{ e_booking.event_date }}</p>
+                            <p>Places Reserved: {{ e_booking.places_booked }}</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col s8 booking-details">
-                    <p>{{ e_booking.event_name }}</p>
-                    <p>{{ e_booking.event_date }}</p>
-                    <p>Places Reserved: {{ e_booking.places_booked }}</p>
-                </div>
-            </div>
-        </div>
-        <a class="btn btn-small red accent-3 modal-trigger" href="#event-delete-{{ e_booking.id }}">Delete</a>
+                <a class="btn btn-small red accent-3 modal-trigger" href="#event-delete-{{ e_booking.id }}">Delete</a>
 
-        <!-- Modal Structure -->
-        <div id="event-delete-{{ e_booking.id }}" class="modal">
-            <div class="modal-content">
-                <h4 class="center">Are you sure you want to cancel this booking?</h4>
-                <p class="center">{{ e_booking.event_name }}</p>
-                <div class="input-field">
-                    <input name="password" id="password" type="password" class="validate" required>
-                    <label for="password"><i class="fa-solid fa-lock"></i> Password:</label>
+                <!-- Modal Structure -->
+                <div id="event-delete-{{ e_booking.id }}" class="modal">
+                    <div class="modal-content">
+                        <h4 class="center">Are you sure you want to cancel this booking?</h4>
+                        <p class="center">{{ e_booking.event_name }}</p>
+                        <div class="input-field">
+                            <input name="password" id="password" type="password" class="validate" required>
+                            <label for="password"><i class="fa-solid fa-lock"></i> Password:</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ url_for('remove_event_booking', e_booking_id=e_booking.id) }}"
+                            class="modal-close btn btn-small red accent-3">Delete</a>
+                    </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <a href="{{ url_for('remove_event_booking', e_booking_id=e_booking.id) }}"
-                    class="modal-close btn btn-small red accent-3">Delete</a>
-            </div>
         </div>
+        {% endif %}
+        {% endfor %}
     </div>
-    {% endif %}
-    {% endfor %}
 </div>
 {% endblock %}

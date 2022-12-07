@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
-    <a class="btn back-btn btn-small blue accent-3" href="{{ url_for('admin_dashboard')}}"><i
+    <a class="btn back-btn btn-small blue accent-3" href="{{ url_for('delete_event')}}"><i
             class="fa-solid fa-angle-left"></i>Back</a>
     <h1 class="page-title uppercase center">Search Event</h1>
     <h1 class="page-title uppercase center">To Delete</h1>
@@ -18,6 +18,7 @@
     </div>
     <div class="row">
         {% for event in events%}
+        {% if event_name == event.name %}
         <div class="col s12 m6">
             <div class="card search-card">
                 <div class="card-content">
@@ -32,23 +33,10 @@
                         </div>
                     </div>
                 </div>
-                <a class="btn btn-small red accent-3 modal-trigger" href="#modal-delete-{{ event.id }}">Delete</a>
-
-                <!-- Modal Structure -->
-                <div id="modal-delete-{{ event.id }}" class="modal delete-event">
-                    <div class="modal-content">
-                        <h4 class="center">Are you sure you want to delete this event?</h4>
-                        <p class="center">{{ event.name }}</p>
-                        <p class="center">Date: {{ event.event_date.strftime("%d %B, %Y") }}</p>
-                        <p class="center">Spaces Available: {{ event.places_left }}</p>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="{{ url_for('remove_event', event_id=event.id)}}"
-                            class="modal-close btn btn-small red accent-3">Delete</a>
-                    </div>
-                </div>
+                <a href="{{ url_for('edit_event', event_id=event.id)}}" class="btn btn-small blue accent-3">Edit</a>
             </div>
         </div>
+        {% endif %}
         {% endfor %}
     </div>
 </div>

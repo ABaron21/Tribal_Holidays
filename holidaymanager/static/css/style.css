@@ -546,7 +546,7 @@ main {
         padding: 0 100px;
     }
     .hero-card .signed-in p{
-        font-size: 20px;
+        font-size: 18px;
         margin-bottom: 5px;
         padding: 0 100px;
     }
@@ -650,11 +650,6 @@ main {
     .delete-caravan .modal-content img{
         margin-left: 250px;
     }
-    .delete-caravan .modal-content .input-field{
-        width: 50%;
-        margin-top: 20px;
-        margin-left: 180px;
-    }
 
     /* Booking Page */
     .caravan-booking-card, .event-booking-card{
@@ -701,5 +696,138 @@ main {
         width: 50%;
         margin-top: 20px;
         margin-left: 180px;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    /* Home Page */
+    .hero-wrapper{
+        height: 50vh;
+    }
+    .hero-card{
+        margin-left: 510px;
+        height: 300px;
+    }
+    .hero-card .signed-in .card-title{
+        font-size: 36px;
+        margin-top: 10px;
+        margin-bottom: 40px;
+    }
+    .hero-card .signed-out .card-title{
+        font-size: 36px;
+        margin-top: 10px;
+        margin-bottom: 25px;
+    }
+    .hero-card .signed-out p{
+        font-size: 18px;
+        margin-bottom: 5px;
+        padding: 0 100px;
+    }
+    .hero-card .signed-in{
+        margin-bottom: 30px;
+    }
+    .hero-card .signed-in p{
+        margin-bottom: 5px;
+        padding: 0 100px;
+    }
+    .hero-card .sign-up{
+        margin-top: 15px;
+        padding: 0 0 30px 0;
+    }
+    .hero-card .sign-up a{
+        font-size: 22px;
+    }
+    .recommendations .recommended-item-left .text-content{
+        margin-left: 100px;
+    }
+    .recommendations .recommended-item-left .image-content{
+        margin-left: 200px;
+    }
+    .recommendations .recommended-item-left img{
+        width: 200px;
+    }
+    .recommendations .recommended-item-right .text-content{
+        margin-right: 50px;
+    }
+    .recommendations .recommended-item-right img{
+        width: 200px;
+    }
+
+    /* Register & Login Page */
+    .register-card,
+    .login-card{
+        width: 60%;
+        margin-left: 250px;
+    }
+    .register-card .signup-btn{
+        margin-left: 300px;
+    }
+    .login-card .signup-btn{
+        margin-left: 300px;
+    }
+
+    /* Caravans & Events Page */
+    .search-panel{
+        width: 65%;
+        margin-top: 30px;
+        margin-left: 200px;
+    }
+    .caravan-search-filter{
+        margin-right: 370px;
+    }
+    .search-card{
+        width: 500px;
+        margin: 10px 20px;
+    }
+    .search-card .search-info p{
+        font-size: 18px;
+    }
+    .search-card .caravan-img img,
+    .search-card .event-img img{
+        width: 200px;
+        margin-left: 20px;
+    }
+    .search-card .btn{
+        margin-left: 330px;
+    }
+    .search-filter {
+        margin-right: 50px;
+    }
+
+    /* Profile Page */
+    .profile-card .card-content p{
+        font-size: 24px;
+    }
+    .detail-actions{
+        margin-left: 350px;
+    }
+    .caravan-booking .caravan-img img,
+    .event-booking .event-img img{
+        width: 180px;
+    }
+    .change-details-card,
+    .change-password-card{
+        width: 60%;
+        margin-left: 250px;
+    }
+    .delete-account-modal{
+        width: 40%;
+    }
+    .delete-account-modal .modal-content .input-field{
+        width: 40%;
+        margin-top: 20px;
+        margin-left: 210px;
+    }
+
+    /* Admin Dashboard */
+    .add-caravan-card, .add-event-card{
+        width: 60%;
+        margin-left: 250px;
+    }
+    .delete-caravan, .delete-event{
+        width: 40%;
+    }
+    .delete-caravan .modal-content img{
+        margin-left: 240px;
     }
 }

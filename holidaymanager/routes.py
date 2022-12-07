@@ -369,10 +369,21 @@ def edit_caravan(caravan_id):
     return render_template("edit-caravan.html", caravan=caravan)
 
 
-@app.route("/delete-caravan")
+@app.route("/delete-caravan", methods=["GET", "POST"])
 def delete_caravan():
     caravans = list(Caravans.query.order_by(Caravans.id).all())
+    if request.method == "POST":
+        name = request.form.get("search")
+        return redirect(url_for('delete_caravan_searched', caravan_name=name))
     return render_template("delete-caravan.html", caravans=caravans)
+
+
+@app.route("/delete-caravan-searched/<caravan_name>", methods=["GET", "POST"])
+def delete_caravan_searched(caravan_name):
+    caravans = list(Caravans.query.order_by(Caravans.id).all())
+    return render_template(
+        "delete-caravan-searched.html", caravans=caravans,
+        caravan_name=caravan_name)
 
 
 @app.route("/remove-caravan/<int:caravan_id>")
@@ -432,10 +443,20 @@ def edit_event(event_id):
     return render_template("edit-event.html", event=event)
 
 
-@app.route("/delete-event")
+@app.route("/delete-event", methods=["GET", "POST"])
 def delete_event():
     events = list(Events.query.order_by(Events.id).all())
+    if request.method == "POST":
+        name = request.form.get("search")
+        return redirect(url_for('delete_event_searched', event_name=name))
     return render_template("delete-event.html", events=events)
+
+
+@app.route("/delete-event-searched/<event_name>", methods=["GET", "POST"])
+def delete_event_searched(event_name):
+    events = list(Events.query.order_by(Events.id).all())
+    return render_template(
+        "delete-event-searched.html", events=events, event_name=event_name)
 
 
 @app.route("/remove-event/<int:event_id>")
