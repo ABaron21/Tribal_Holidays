@@ -47,8 +47,8 @@
                         <img src="{{ caravan.img_url }}" alt="caravan-img">
                     </div>
                     <div class="modal-footer">
-                        <a href="{{ url_for('remove_caravan', caravan_id=caravan.id)}}"
-                            class="modal-close btn btn-small red accent-3">Delete</a>
+                        <button class="modal-close btn btn-small blue accent-3">Cancel</button>
+                        <a href="{{ url_for('remove_caravan', caravan_id=caravan.id)}}" class="btn btn-small red accent-3">Delete</a>
                     </div>
                 </div>
             </div>
