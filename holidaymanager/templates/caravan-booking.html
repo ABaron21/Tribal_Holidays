@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
+    {% if session.user %}
     <h1 class="page-title uppercase center">Book Caravan</h1>
     <div class="row">
         <div class="col s12">
@@ -46,5 +47,12 @@
             </div>
         </div>
     </div>
+    {% else %}
+    <div class="sign-in-alert">
+        <h1 class="page-title center">Sorry you can't do that</h1>
+        <p class="center ">You need to be logged in to book a caravan</p>
+        <a href="{{ url_for('login')}}" class="center">Click here to login</a>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}

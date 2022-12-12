@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
+    {% if session.user == 'admin'%}
     <h1 class="admin-title uppercase center">Admin Dashboard</h1>
 
     <!-- Caravan Bookings -->
@@ -63,6 +64,12 @@
         <div class="col s4 event-option center"><a href="{{ url_for('edit_event_search')}}" class="btn btn-small blue accent-3">Edit</a></div>
         <div class="col s4 event-option center"><a href="{{ url_for('delete_event')}}" class="btn btn-small red accent-3">Delete</a></div>
     </div>
-
+    {% else %}
+    <div class="sign-in-alert">
+        <h1 class="page-title center uppercase">Access Denied</h1>
+        <p class="center ">You must been an admin user to view this page!</p>
+        <a href="{{ url_for('home')}}" class="center">Return to home</a>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}

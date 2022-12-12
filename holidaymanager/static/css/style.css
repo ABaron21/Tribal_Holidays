@@ -194,7 +194,13 @@ main {
     width: 125px;
     height: 100px;
 }
-
+.sign-in-alert a{
+    font-size: 18px;
+    margin-left: 125px;
+}
+.sign-in-alert p{
+    font-size: 18px;
+}
 
 /*Event Page*/
 .events-title{
@@ -229,6 +235,9 @@ main {
     font-size: 2.2rem;
     color: #2979ff;
     padding-top: 20px;
+}
+.detail-actions{
+    margin-left: 5px;
 }
 .profile-card .card-content p {
     font-size: 18px;
@@ -399,6 +408,9 @@ main {
         margin-right: 290px;
         height: 2.2em;
     }
+    .sign-in-alert a{
+        margin-left: 255px;
+    }
 
     /* Admin Dashboard */
     .delete-caravan img{
@@ -502,10 +514,15 @@ main {
     .search-filter{
         margin-right: 30px;
     }
+    .sign-in-alert a{
+        margin-left: 300px;
+    }
+
     /* Profile Page */
     .detail-actions{
         margin-left: 125px;
     }
+    
     /* Admin Dashboard */
     .caravan-bookings .card-content p,
     .event-bookings .card-content p{
@@ -617,6 +634,16 @@ main {
     }
     .search-card .btn{
         margin-left: 300px;
+    }
+    .sign-in-alert h1{
+        font-size: 56px;
+    }
+    .sign-in-alert p{
+        font-size: 22px;
+    }
+    .sign-in-alert a{
+        font-size: 22px;
+        margin-left: 425px;
     }
 
     /* Admin Dashboard */
@@ -792,6 +819,9 @@ main {
     }
     .search-filter {
         margin-right: 50px;
+    }
+    .sign-in-alert a{
+        margin-left: 560px;
     }
 
     /* Profile Page */

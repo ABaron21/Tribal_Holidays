@@ -73,19 +73,21 @@
 
                 <!-- Modal Structure -->
                 <div id="caravan-delete-{{ c_booking.id }}" class="modal">
-                    <div class="modal-content">
-                        <h4 class="center">Are you sure you want to cancel this booking?</h4>
-                        <p class="center">{{ c_booking.caravan_name }}</p>
-                        <p class="center">{{ c_booking.start_date }} - {{ c_booking.end_date }}</p>
-                        <div class="input-field">
-                            <input name="password" id="password" type="password" class="validate" required>
-                            <label for="password"><i class="fa-solid fa-lock"></i> Password:</label>
+                    <form method="POST" action="{{ url_for('remove_caravan_booking', c_booking_id=c_booking.id) }}">
+                        <div class="modal-content">
+                            <h4 class="center">Are you sure you want to cancel this booking?</h4>
+                            <p class="center">{{ c_booking.caravan_name }}</p>
+                            <p class="center">{{ c_booking.start_date }} - {{ c_booking.end_date }}</p>
+                            <div class="input-field">
+                                <input name="password" id="password" type="password" class="validate" required>
+                                <label for="password"><i class="fa-solid fa-lock"></i> Password:</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="{{ url_for('remove_caravan_booking', c_booking_id=c_booking.id) }}"
-                            class="modal-close btn btn-small red accent-3">Delete</a>
-                    </div>
+                        <div class="modal-footer">
+                            <button class="modal-close btn btn-small blue accent-3">Cancel</button>
+                            <button type="submit" class="btn btn-small red accent-3">Delete</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -117,18 +119,20 @@
 
                 <!-- Modal Structure -->
                 <div id="event-delete-{{ e_booking.id }}" class="modal">
-                    <div class="modal-content">
-                        <h4 class="center">Are you sure you want to cancel this booking?</h4>
-                        <p class="center">{{ e_booking.event_name }}</p>
-                        <div class="input-field">
-                            <input name="password" id="password" type="password" class="validate" required>
-                            <label for="password"><i class="fa-solid fa-lock"></i> Password:</label>
+                    <form method="POST" action="{{ url_for('remove_event_booking', e_booking_id=e_booking.id) }}">
+                        <div class="modal-content">
+                            <h4 class="center">Are you sure you want to cancel this booking?</h4>
+                            <p class="center">{{ e_booking.event_name }}</p>
+                            <div class="input-field">
+                                <input name="password" id="password" type="password" class="validate" required>
+                                <label for="password"><i class="fa-solid fa-lock"></i> Password:</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="{{ url_for('remove_event_booking', e_booking_id=e_booking.id) }}"
-                            class="modal-close btn btn-small red accent-3">Delete</a>
-                    </div>
+                        <div class="modal-footer">
+                            <button class="modal-close btn btn-small blue accent-3">Cancel</button>
+                            <button type="submit" class="btn btn-small red accent-3">Delete</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

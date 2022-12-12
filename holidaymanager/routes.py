@@ -113,13 +113,13 @@ def caravan_search_features(feature):
 def caravan_booking(caravan_id):
     caravan = Caravans.query.get_or_404(caravan_id)
     customers = list(Users.query.order_by(Users.username).all())
-    for customer in customers:
-        if session['user'] == customer.username:
-            customer = customer
     if request.method == "POST":
         customer_name = request.form.get('first_name')
         customer_name += " "
         customer_name += request.form.get('last_name')
+        for customer in customers:
+            if session['user'] == customer.username:
+                customer = customer
         booking = Caravan_Bookings(
             user_id=customer.id,
             customer=customer_name,
@@ -137,15 +137,20 @@ def caravan_booking(caravan_id):
     return render_template("caravan-booking.html", caravan=caravan)
 
 
-@app.route("/remove-caravan-booking/<int:c_booking_id>")
+@app.route("/remove-caravan-booking/<int:c_booking_id>", methods=[
+    "GET", "POST"])
 def remove_caravan_booking(c_booking_id):
     c_booking = Caravan_Bookings.query.get_or_404(c_booking_id)
     caravan = Caravans.query.get_or_404(c_booking.caravan_id)
-    caravan.available = True
-    db.session.delete(booking)
-    db.session.commit()
-    flash("Booking has been cancelled")
-    return redirect(url_for('profile', username=session['user']))
+    user = Users.query.get_or_404(c_booking.user_id)
+    if request.method == "POST":
+        if check_password_hash(
+                user.password, request.form.get("password")):
+            caravan.available = True
+            db.session.delete(c_booking)
+            db.session.commit()
+            flash("Booking has been cancelled")
+            return redirect(url_for('profile', username=session['user']))
 
 
 @app.route("/events", methods=["GET", "POST"])
@@ -182,10 +187,10 @@ def events_search_date(date):
 def event_booking(event_id):
     event = Events.query.get_or_404(event_id)
     customers = list(Users.query.order_by(Users.username).all())
-    for customer in customers:
-        if session['user'] == customer.username:
-            customer = customer
     if request.method == "POST":
+        for customer in customers:
+            if session['user'] == customer.username:
+                customer = customer
         customer_name = request.form.get('first_name')
         customer_name += " "
         customer_name += request.form.get('last_name')
@@ -208,17 +213,22 @@ def event_booking(event_id):
     return render_template("event-booking.html", event=event)
 
 
-@app.route("/remove-event-booking/<int:e_booking_id>")
+@app.route("/remove-event-booking/<int:e_booking_id>", methods=[
+    "GET", "POST"])
 def remove_event_booking(e_booking_id):
     e_booking = Event_Bookings.query.get_or_404(e_booking_id)
     event = Events.query.get_or_404(e_booking.event_id)
-    spots_return = int(
-            event.places_left) + int(e_booking.places_booked)
-    event.places_left = spots_return
-    db.session.delete(e_booking)
-    db.session.commit()
-    flash("Booking has been cancelled")
-    return redirect(url_for('home'))
+    user = Users.query.get_or_404(e_booking.user_id)
+    if request.method == "POST":
+        if check_password_hash(
+                user.password, request.form.get("password")):
+            spots_return = int(
+                event.places_left) + int(e_booking.places_booked)
+            event.places_left = spots_return
+            db.session.delete(e_booking)
+            db.session.commit()
+            flash("Booking has been cancelled")
+            return redirect(url_for('profile', username=session['user']))
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
