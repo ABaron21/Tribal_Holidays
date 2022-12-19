@@ -31,8 +31,7 @@ def register():
             username=request.form.get("username"),
             email=request.form.get("email"),
             password=generate_password_hash(request.form.get("password")),
-            admin_user=bool(
-                True if request.form.get("admin_user") else False)
+            admin_user=False
         )
         db.session.add(user)
         db.session.commit()
@@ -324,6 +323,59 @@ def admin_dashboard():
     return render_template(
         "admin-dashboard.html", caravan_bookings=caravan_bookings,
         event_bookings=event_bookings)
+
+
+@app.route("/add-account", methods=["GET", "POST"])
+def add_account():
+    if request.method == "POST":
+        user = Users(
+            first_name=request.form.get("first_name"),
+            last_name=request.form.get("last_name"),
+            username=request.form.get("username"),
+            email=request.form.get("email"),
+            password=generate_password_hash(request.form.get("password")),
+            admin_user=bool(
+                True if request.form.get("admin_user") else False)
+        )
+        db.session.add(user)
+        db.session.commit()
+        flash("Account Added Successfully")
+        return redirect(url_for("admin_dashboard"))
+    return render_template("add-account.html")
+
+
+@app.route("/edit-account-search", methods=["GET", "POST"])
+def edit_account_search():
+    accounts = list(Users.query.order_by(Users.id).all())
+    if request.method == "POST":
+        name = request.form.get("search")
+        return redirect(url_for('edit_account_searched', account_name=name))
+    return render_template("edit-account-search.html", accounts=accounts)
+
+
+@app.route("/edit-account-searched/<account_name>", methods=["GET", "POST"])
+def edit_account_searched(account_name):
+    accounts = list(Users.query.order_by(Users.id).all())
+    return render_template(
+        "edit-account-searched.html",
+        accounts=accounts, account_name=account_name)
+
+
+@app.route("/edit-account/<int:account_id>", methods=["GET", "POST"])
+def edit_account(account_id):
+    user = Users.query.get_or_404(account_id)
+
+    if request.method == "POST":
+        user.first_name = request.form.get("first_name")
+        user.last_name = request.form.get("last_name")
+        user.username = request.form.get("username")
+        user.email = request.form.get("email")
+        user.admin_user = bool(
+                True if request.form.get("admin_user") else False)
+        db.session.commit()
+        flash("Account has been edited successfully")
+        return redirect(url_for('admin_dashboard'))
+    return render_template("edit-account.html", user=user)
 
 
 @app.route("/add-caravan", methods=["GET", "POST"])

@@ -3,6 +3,13 @@
 <div class="container">
     {% if session.user == 'admin'%}
     <h1 class="admin-title uppercase center">Admin Dashboard</h1>
+    <div class="row">
+        <div class="col s12">
+            <h5 class="center caravan-options">Account Options</h5>
+        </div>
+        <div class="col s6 caravan-option center"><a href="{{ url_for('add_account')}}" class="btn btn-small blue accent-3">Add</a></div>
+        <div class="col s6 caravan-option center"><a href="{{ url_for('edit_account_search') }}" class="btn btn-small blue accent-3">Edit</a></div>
+    </div>
 
     <!-- Caravan Bookings -->
     <div class="row">

@@ -45,9 +45,12 @@ US = User story (e.g US One = user story one)
 ![user-story-six](images/us-six.PNG)
 
 ----
-## Defensive Testing
+## Defensiveness
 ### Attempting book without being logged in
 ![defensive-one](images/defensiveness-one.PNG)
 
 ### Attempting to view the admin dashboard without being an admin user
 ![defensive-two](images/defensiveness-two.PNG)
+
+----
+## User Interaction

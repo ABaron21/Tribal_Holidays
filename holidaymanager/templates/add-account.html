@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
-    <h1 class="register-title uppercase center">Register</h1>
+    <h1 class="register-title uppercase center">Add Account</h1>
     <div class="row">
         <div class="col s12">
             <div class="card register-card">
@@ -35,10 +35,19 @@
                                 <label for="password"><i class="fa-solid fa-lock"></i> Password:</label>
                             </div>
                         </div>
-                        <button type="submit" class="btn signup-btn blue accent-3">Sign Up!</button>
-                        <div class="col s12 center">
-                            <a href="{{ url_for('login') }}">Already a user? Login here</a>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <div class="switch">
+                                    <label>
+                                      Admin?
+                                      <input id="admin_user" name="admin_user" type="checkbox">
+                                      <span class="lever"></span>
+                                    </label>
+                                  </div>
+                            </div>
                         </div>
+                        <button type="submit" class="btn  btn-small blue accent-3">Add</button>
+                        <a class="btn btn-small red accent-3" href="{{ url_for('admin_dashboard')}}">Cancel</a>
                     </form>
                 </div>
             </div>
