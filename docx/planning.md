@@ -37,7 +37,7 @@ As an admin of the site I would like to view all the data for caravans and event
 
 ----
 ## Future Features
-
+* Users to be able to add their own cararvans & events, being either a different caravan holiday park or just user looking to rent out their own caravan that resides on a caravan park.
 
 ----
 ## Typography & Colour Scheme
