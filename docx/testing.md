@@ -43,3 +43,11 @@ US = User story (e.g US One = user story one)
 3. Scroll down the page to see options for caravans and events such as adding/editing and deleting, as well viewing bookings that have been placed
 
 ![user-story-six](images/us-six.PNG)
+
+----
+## Defensive Testing
+### Attempting book without being logged in
+![defensive-one](images/defensiveness-one.PNG)
+
+### Attempting to view the admin dashboard without being an admin user
+![defensive-two](images/defensiveness-two.PNG)
