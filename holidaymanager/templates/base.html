@@ -30,7 +30,7 @@
                         <li><a href="{{ url_for('admin_dashboard') }}">Dashboard</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                         {% else %}
-                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                        <li><a href="{{ url_for('profile', id=session.user) }}">Profile</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                         {% endif %}
                         {% else %}
@@ -51,7 +51,7 @@
                     <li><a href="{{ url_for('admin_dashboard') }}">Dashboard</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                 {% else %}
-                    <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                    <li><a href="{{ url_for('profile', id=session.user) }}">Profile</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                 {% endif %}
             {% else %}

@@ -34,7 +34,7 @@
     </div>
     <!-- Modal Structure -->
     <div id="account-delete-{{ account.id }}" class="modal delete-account-modal">
-        <form method="POST" action="{{ url_for('profile', username=account.username) }}">
+        <form method="POST" action="{{ url_for('profile', id=account.id) }}">
             <div class="modal-content">
                 <h4 class="center">Are you sure you want to delete your account?</h4>
                 <p class="center">Be aware that all your bookings will be removed.</p>

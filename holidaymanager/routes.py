@@ -55,7 +55,7 @@ def login():
                     session["user"] = "admin"
                     return redirect(url_for('home'))
                 else:
-                    session["user"] = request.form.get("username").lower()
+                    session["user"] = existing_user.id
                     flash("Welcome back, {0}".format(
                         request.form.get("username")))
                     return redirect(url_for('home'))
@@ -149,7 +149,7 @@ def remove_caravan_booking(c_booking_id):
             db.session.delete(c_booking)
             db.session.commit()
             flash("Booking has been cancelled")
-            return redirect(url_for('profile', username=session['user']))
+            return redirect(url_for('profile', id=user.id))
 
 
 @app.route("/events", methods=["GET", "POST"])
@@ -227,15 +227,12 @@ def remove_event_booking(e_booking_id):
             db.session.delete(e_booking)
             db.session.commit()
             flash("Booking has been cancelled")
-            return redirect(url_for('profile', username=session['user']))
+            return redirect(url_for('profile', id=user.id))
 
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
-    accounts = list(Users.query.order_by(Users.username).all())
-    for account in accounts:
-        if username == account.username:
-            account = account
+@app.route("/profile/<int:id>", methods=["GET", "POST"])
+def profile(id):
+    account = Users.query.get_or_404(id)
     c_bookings = list(Caravan_Bookings.query.all())
     e_bookings = list(
         Event_Bookings.query.all())
@@ -265,7 +262,7 @@ def change_password(user_id):
                     request.form.get("new"))
                 db.session.commit()
                 flash("Password Changed Successfully")
-                return redirect(url_for('profile', username=session['user']))
+                return redirect(url_for('profile', id=user.id))
             else:
                 flash("New & Confirm Password didn't match")
                 return redirect(url_for('change_password', user_id=user.id))
@@ -287,8 +284,7 @@ def change_details(user_id):
         user.email = request.form.get("email")
         db.session.commit()
         flash("Account details updated successfully")
-        session['user'] = request.form.get("username")
-        return redirect(url_for('profile', username=session['user']))
+        return redirect(url_for('profile', id=user.id))
     return render_template("change-details.html", user=user)
 
 
