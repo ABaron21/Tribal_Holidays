@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
+    {% if account.id == session.user %}
     <h1 class="uppercase center profile-title">{{ account.username }}'s Profile</h1>
 
     <!-- Profile Details -->
@@ -139,5 +140,12 @@
         {% endif %}
         {% endfor %}
     </div>
+    {% else %}
+    <div class="sign-in-alert">
+        <h1 class="page-title center uppercase">Access Denied</h1>
+        <p class="center">You can't access this profile!</p>
+        <a href="{{ url_for('home')}}" class="center">Return to home</a>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}

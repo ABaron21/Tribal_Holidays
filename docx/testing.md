@@ -52,6 +52,9 @@ US = User story (e.g US One = user story one)
 ### Attempting to view the admin dashboard without being an admin user
 ![defensive-two](images/defensiveness/defensiveness-two.PNG)
 
+### Attempting to view another users profile
+![defensive-three](images/defensiveness/defensiveness-three.PNG)
+
 ----
 ## User Interaction
 ### User Registration
@@ -96,3 +99,12 @@ US = User story (e.g US One = user story one)
 ![deleting-account](images/user-interaction/deleting-account.PNG)
 ![deleted-account](images/user-interaction/deleted-account.PNG)
 ![deleted-account-db](images/user-interaction/deleted-account-db.PNG)
+
+----
+## Bugs
+### Profile Page Bug
+![profile-bug](images/bugs/profile-page-bug.PNG)
+
+As shown above when the development test user tried to view their profile it would show the profile page for the 'Test One' user, the reason for this bug is that when retrieving a user's profile it does it based on the username given which has been stored as a session cookie when the user logged in.
+
+To resolve this bug what was changed was that within the user session cookie it would store the users ID number instead of their username so this would allow for the user to be able to see their profile and only their profile, also with this change it allowed for the defensiveness to be put into place for the profile page.
