@@ -1,108 +1,117 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Tribal Holidays
+![responive-image](docx/images/responsiveness-img.PNG)
 
-Welcome A_Baron,
+Click here to vist the [Tribal Holidays](https://tribal-holidays-abaron.herokuapp.com/) website
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Project Purpose
+This project will extend beyond the basic structure and functionality of a website by including connections to a databases and working with python logic, to implement CRUD functionality that will allow users on the website being both customers and admin to interact in a more logical way to achieve a improved user expierience throughout the website.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+----
+## User Stories
+As a new user to the website I would like to register so I can begin my holiday search.
 
-## Gitpod Reminders
+As a current user I would like to login so I can search and book my next holiday.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+As a customer I would like to be able to see all the caravans and filter the search so I can find the exact caravan I'm looking for.
 
-`python3 -m http.server`
+As a customer I would like to be able to see all the events that are available so I can include activites into my holiday.
 
-A blue button should appear to click: _Make Public_,
+As a user I would like to view my profile so I can see my bookings and also change my password.
 
-Another blue button should appear to click: _Open Browser_.
+As an admin of the site I would like to view all the data for caravans and events so I can add more, update details or delete out dated records.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+----
+## Features
+* All users:
+    * Register/Login
+    * View profile & change account password.
 
-A blue button should appear to click: _Make Public_,
+* Customers: 
+    * Search caravans & filter search by specific/additional features
+    * Search events & filter by specific dates
 
-Another blue button should appear to click: _Open Browser_.
+* Admin users:
+    * Create new records for caravans & events
+    * Update data for caravans or events
+    * Delete records
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+----
+## Future Features
+* Users to be able to add their own cararvans & events, being either a different caravan holiday park or just user looking to rent out their own caravan that resides on a caravan park.
 
-To log into the Heroku toolbelt CLI:
+----
+## Typography & Colour Scheme
+* Font: [Mukta](https://fonts.google.com/specimen/Mukta)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+* Colour Scheme:
+    * Background: Lightly darkened blue.
+    * Font: Offset white.
+    * Colours will switch if background colour is white.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+----
+## Wireframes
+Landing Page(New User)
+![landing-page-new-user](docx/wireframes/landing-page-logged-out.png)
 
-------
+Landing Page(Logged In)
+![landing-page-logged-in](docx/wireframes/landing-page-logged-in.png)
 
-## Release History
+Login Page
+![login-page](docx/wireframes/login-page.png)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+Register Page
+![register-page](docx/wireframes/register.page.png)
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+Profile Page
+![profile-page](docx/wireframes/profile-page.png)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+Caravans Page
+![caravans-page](docx/wireframes/caravans-page.png)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+Events Page
+![events-page](docx/wireframes/events-page.png)
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+## Technology Used
+Balsamiq Wireframes - Used to build/create the visual outline for the different web pages that the website consists of.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+GitPod - Cloud based IDE used to create and build the code for the website.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+HTML - Programming language used to build the structure of the website/web pages by the use of elements and different components.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+CSS - The styling for the website, used to make the web pages more visually appealing.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+Materialize - An external libary used that aims to focus on the resposiveness of the website, as well as the basic structure and styling for the website.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+Python - Programming language used to construct the functionality for the website that allows data to be intergrated from the database to the user and reversed based on a users interactions.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+PostgresSQL - Relational database used to store data that has been added by a user in to different tables and relays data back through various queries.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+JavaScript - Provides additional functionality but is mainly used to initialize Materialize components such as the modals, datepicker etc.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+GitHub - A cloud based storage used as the version control for the production by committing and pushing at various stages throughout the development.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+ElephantSQL - Used to host the SQL server in the final deployment.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+Heroku - Used to deploy the final development.
 
-------
+----
+# Testing
+[Click here](docx/testing.md) to redirect to the Testing file
 
-## FAQ about the uptime script
+## Screens
+Each web pages has been tested to make sure that they are fully responsive across all screen sizes beginning with mobile devices and increasing upwards to tablets, laptops and finally desktops as it's the largest screen size expected for a browser window.
 
-**Why have you added this script?**
+----
+## Deployment
+Two versions on deployment:
+* GitPod - used throughout the development by typing 'python3 -m http.server' in the terminal which gives a prompt to open in a new tab within the browser.
+* Heroku - the final deployment of the website which makes it accesible to the public.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+----
+## Credits
 
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+### External Code
+* Materialize:
+    * Collapsable Nav Bar
+    * Modals
+    * Datepickers
