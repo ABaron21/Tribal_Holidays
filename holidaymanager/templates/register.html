@@ -35,6 +35,17 @@
                                 <label for="password"><i class="fa-solid fa-lock"></i> Password:</label>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <div class="switch">
+                                    <label>
+                                      Admin?
+                                      <input id="admin_user" name="admin_user" type="checkbox">
+                                      <span class="lever"></span>
+                                    </label>
+                                  </div>
+                            </div>
+                        </div>
                         <button type="submit" class="btn signup-btn blue accent-3">Sign Up!</button>
                         <div class="col s12 center">
                             <a href="{{ url_for('login') }}">Already a user? Login here</a>
