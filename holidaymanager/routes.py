@@ -295,13 +295,13 @@ def delete_account(account_id):
     for c_booking in c_bookings:
         if c_booking.user_id == account_id:
             c_booking = c_booking
+            caravan = Caravans.query.get_or_404(c_booking.caravan_id)
     e_bookings = list(Event_Bookings.query.all())
     for e_booking in e_bookings:
         if e_booking.user_id == account_id:
             e_booking = e_booking
-    caravan = Caravans.query.get_or_404(c_booking.caravan_id)
+            event = Events.query.get_or_404(e_booking.event_id)
     caravan.available = True
-    event = Events.query.get_or_404(e_booking.event_id)
     spots_return = int(
             event.places_left) + int(e_booking.places_booked)
     event.places_left = spots_return

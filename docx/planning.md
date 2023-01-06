@@ -1,7 +1,7 @@
 # Tribal Holidays
-responive-image
+![responive-image](images/responsiveness-img.PNG)
 
-Click here to vist the Tribal Holidays website (Link)
+Click here to vist the [Tribal Holidays](https://tribal-holidays-abaron.herokuapp.com/) website
 
 ## Project Purpose
 This project will extend beyond the basic structure and functionality of a website by including connections to a databases and working with python logic, to implement CRUD functionality that will allow users on the website being both customers and admin to interact in a more logical way to achieve a improved user expierience throughout the website.

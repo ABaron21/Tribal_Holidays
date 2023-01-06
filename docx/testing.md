@@ -101,6 +101,12 @@ US = User story (e.g US One = user story one)
 ![deleted-account-db](images/user-interaction/deleted-account-db.PNG)
 
 ----
+## Code Validation
+### HTML
+
+### CSS
+
+----
 ## Bugs
 ### Profile Page Bug
 ![profile-bug](images/bugs/profile-page-bug.PNG)
