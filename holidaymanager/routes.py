@@ -31,8 +31,7 @@ def register():
             username=request.form.get("username"),
             email=request.form.get("email"),
             password=generate_password_hash(request.form.get("password")),
-            admin_user=bool(
-                True if request.form.get("admin_user") else False)
+            admin_user=False
         )
         db.session.add(user)
         db.session.commit()
