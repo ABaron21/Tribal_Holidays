@@ -530,6 +530,12 @@ main {
     }
 }
 
+@media screen and (min-width: 1280px){
+    .hero-card{
+        margin-left: 275px;
+    }
+}
+
 @media screen and (min-width: 1440px) {
     .nav-wrapper li a{
         font-size: 17px;
