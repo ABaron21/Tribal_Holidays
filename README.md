@@ -1,5 +1,5 @@
 # Tribal Holidays
-![responive-image](docx/images/responsiveness-img.PNG)
+![responive-image](docx/images/responsiveness-img.png)
 
 Click here to vist the [Tribal Holidays](https://tribal-holidays-abaron.herokuapp.com/) website
 
@@ -60,7 +60,7 @@ Login Page
 ![login-page](docx/wireframes/login-page.png)
 
 Register Page
-![register-page](docx/wireframes/register.page.png)
+![register-page](docx/wireframes/register-page.png)
 
 Profile Page
 ![profile-page](docx/wireframes/profile-page.png)
@@ -70,6 +70,15 @@ Caravans Page
 
 Events Page
 ![events-page](docx/wireframes/events-page.png)
+
+## Database
+With databases there are 2 different types of databases which are relational and non-relational, the main thing that seperates these types are that one incorporates relationship between the tables with the database schema and the other doesn't. For this production PostgreSQL will be the database used which is a relational database and to demonstrate how the relationships look find the ERD diagram below.
+
+ERD (Entity Relationship Diagram)
+![erd-diagram](docx/images/erd-diagram.png)
+
+Within the ERD you can see the different relationships but only two types are used which are 'One-to-One' & 'One-to-Many' and all they mean is that one record will to one and only one other record that exists in the table to relationship is linked to, 'One-to-Many' means that one record in a table can be related to multiple records in another but not vise-versa.
+For Example in the ERD above there's a One-to-Many relationship between the Users entity and the Caravan Bookings entity so a user can many bookings but only a caravan booking can be connected to one user.
 
 ## Technology Used
 Balsamiq Wireframes - Used to build/create the visual outline for the different web pages that the website consists of.
